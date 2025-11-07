@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-construction-orange text-white font-semibold rounded-lg 
+    hover:bg-construction-orange/90 hover:shadow-lg transition-all duration-300 transform hover:scale-105 
+    focus:outline-none focus:ring-2 focus:ring-construction-orange focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-construction-primary border-2 border-construction-primary 
+    font-semibold rounded-lg hover:bg-construction-primary hover:text-white hover:border-construction-primary
+    transition-all duration-300 focus:outline-none focus:ring-2 
+    focus:ring-construction-primary focus:ring-offset-2;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-construction-dark mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-12;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 
+    hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+    focus:outline-none focus:ring-2 focus:ring-construction-orange 
+    focus:border-transparent transition-all duration-200;
+  }
+  
+  .label-text {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+  
+  .error-text {
+    @apply text-red-500 text-sm mt-1;
+  }
+  
+  .nav-link {
+    @apply text-gray-700 font-medium hover:text-construction-orange 
+    transition-colors duration-200 relative px-3 py-2 rounded-md;
+  }
+  
+  .nav-link:hover {
+    @apply bg-orange-50;
+  }
+  
+  .header-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes panRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-pan-right {
+  animation: panRight 40s linear infinite;
+  will-change: transform;
+}
+
+
