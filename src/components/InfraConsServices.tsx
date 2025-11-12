@@ -56,27 +56,27 @@ const services = [
     title: "RMC Services",
     icon: <TruckIcon className="w-16 h-16" />,
     description: "Specialized Ready Mix Concrete solutions for your project requirements.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
+    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
     categories: [
       {
         name: "Special Concrete",
         details: "Custom concrete mixes for specific project requirements and applications.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-1000x1000.jpg",
       },
       {
         name: "Temperature Resistant Concrete",
         details: "High-performance concrete designed to withstand extreme temperature variations.",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
       },
       {
         name: "Best Concrete",
         details: "Premium quality concrete ensuring durability and strength for critical structures.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
       },
       {
         name: "Color Concrete",
         details: "Aesthetically appealing colored concrete for decorative and functional applications.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-1000x1000.jpg",
       },
     ],
     color: "from-black to-gray-900",

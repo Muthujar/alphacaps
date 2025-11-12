@@ -9,42 +9,42 @@ const products = [
   {
     name: "TMT Bars",
     description: "Vizag Steel & ARS TMT Bars (25mm, 10mm, 8mm)",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "/images/products/tmt-bars.jpg",
   },
   {
     name: "AAC Blocks",
     description: "Fusion, NCL & Kamcrete AAC Blocks (4\", 6\")",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "/images/products/aac-blocks.jpg",
   },
   {
     name: "Construction Cement",
     description: "Ramco, UltraTech, Dalmia, JSW brands (50Kg)",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "/images/products/cement.jpg",
   },
   {
     name: "Concrete Blocks",
     description: "Solid & Hollow Concrete Blocks (4\", 6\", 8\", 10\")",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "/images/products/concrete-blocks.jpg",
   },
   {
     name: "Paver Blocks",
     description: "Red & Grey Zig Zag, I-Shape Paver Blocks",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    image: "/images/products/paver-blocks.jpg",
   },
   {
     name: "Clay & Ash Bricks",
     description: "Red Chamber Clay, Fly Ash, Wire Cut Bricks",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "/images/products/clay-bricks.jpg",
   },
   {
     name: "Ready Mix Concrete",
     description: "M10, M15, M20, M25, M30 grades delivered",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    image: "/images/products/ready-mix-concrete.jpg",
   },
   {
     name: "Construction Materials",
     description: "Sand, Aggregates, M Sand, Hume Pipes & More",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "/images/products/aggregates.jpg",
   },
 ];
 
@@ -61,12 +61,13 @@ export default function About() {
         className="text-center mb-12"
       >
         <h2 className="section-title">
-          About <span className="text-construction-orange">Alphacaps.in</span>
+          About <span className="text-construction-orange">AlphaCap</span>
         </h2>
         <p className="section-subtitle max-w-3xl mx-auto">
-          Established in 2024, Alphacaps.in is a leading construction company in Chennai operating through two key verticals: 
-          <strong> Trade Platform</strong> for premium building materials and <strong>InfraCons</strong> for construction and interior services. 
-          We follow moral business policies and crystal pure transparency in all our transactions.
+          Established in 2024, <strong>AlphaCap Trade Platform Private Limited</strong> has grown into one of the
+          leading suppliers of construction building materials in our region. We operate with moral business
+          policies and crystal-clear transparency in every transaction to nurture long-term relationships with our
+          customers.
         </p>
       </motion.div>
 
@@ -107,16 +108,34 @@ export default function About() {
         className="mt-16 text-center"
       >
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-black mb-4">
-            Our Commitment
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            At Alphacaps.in, we understand that quality materials and expert execution are the foundation of every successful project. 
-            Under the guidance of our founder Mr. Prasanth S, we are building a company with strong values and a commitment to excellence. 
-            Our integrated approach allows us to provide end-to-end solutions - from sourcing premium materials through our Trade Platform 
-            to executing complete construction and interior projects through InfraCons. We are committed to building lasting partnerships 
-            with our customers through moral business policies and crystal pure transparency in all transactions.
-          </p>
+          <div className="flex flex-col gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-black mb-3">
+                Our Commitment
+              </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Every order is handled with integrity, transparency, and the sense of responsibility that comes
+                  from being a trusted local supplier. Our customers rely on AlphaCap for a complete mix of steel,
+                  cement, aggregates, and finishing materials delivered with consistency and clear communication.
+                </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-construction-orange/30 bg-construction-orange/5 p-5 text-left">
+                <h4 className="text-lg font-semibold text-black mb-2">Guided Leadership</h4>
+                <p className="text-gray-700">
+                  Our growth story is anchored by the continual backing of <strong>Mr. Prasanth S</strong>, whose direction
+                  propels us towards exponential development in today&apos;s competitive market.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-emerald-300/40 bg-emerald-50/40 p-5 text-left">
+                <h4 className="text-lg font-semibold text-black mb-2">TrustSEAL Verification</h4>
+                <p className="text-gray-700">
+                  Being <strong>TrustSEAL verified by IndiaMART</strong> reinforces our pledge to quality and dependable service,
+                  giving customers the assurance they deserve.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>

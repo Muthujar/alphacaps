@@ -66,7 +66,7 @@ export default function BusinessVerticals() {
           Our Business <span className="text-construction-orange">Verticals</span>
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Alphacaps.in operates through two complementary business units, providing comprehensive solutions 
+          AlphaCap operates through two complementary business units, providing comprehensive solutions 
           from material supply to complete construction and interior services.
         </p>
       </motion.div>
@@ -223,7 +223,7 @@ export default function BusinessVerticals() {
           </h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From sourcing the finest building materials to executing complete construction projects, 
-            Alphacaps.in is your trusted partner for all construction needs. Our integrated approach 
+            AlphaCap is your trusted partner for all construction needs. Our integrated approach 
             ensures quality, consistency, and cost-effectiveness throughout your project lifecycle.
           </p>
         </div>

@@ -1,140 +1,117 @@
 import { NextRequest, NextResponse } from "next/server";
-
-/**
- * API Route: /api/sendMail
- * 
- * Handles POST requests from the enquiry form.
- * Currently logs the form data to console.
- * 
- * Future Enhancement:
- * - Integrate Nodemailer or another email service
- * - Send confirmation email to customer
- * - Send notification email to admin
- * - Store enquiries in database
- */
+import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
-    // Parse the JSON body from the request
     const body = await request.json();
-
-    // Extract form fields
     const {
       name,
       email,
       phone,
+      inquiryType,
       materialType,
+      serviceType,
       quantity,
       deliveryLocation,
       message,
-    } = body;
+    } = body as Record<string, string | undefined>;
 
-    // Basic server-side validation
-    if (!name || !email || !phone || !materialType || !quantity || !deliveryLocation) {
+    if (!name || !phone || !deliveryLocation) {
       return NextResponse.json(
-        {
-          success: false,
-          message: "All required fields must be filled out.",
-        },
+        { success: false, message: "Name, phone, and delivery location are required." },
         { status: 400 }
       );
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Please provide a valid email address.",
-        },
-        { status: 400 }
-      );
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return NextResponse.json(
+          { success: false, message: "Please provide a valid email address." },
+          { status: 400 }
+        );
+      }
     }
 
-    // Validate phone format (10-15 digits)
     const phoneRegex = /^[0-9]{10,15}$/;
     if (!phoneRegex.test(phone)) {
       return NextResponse.json(
-        {
-          success: false,
-          message: "Please provide a valid phone number (10-15 digits).",
-        },
+        { success: false, message: "Please provide a valid phone number (10-15 digits)." },
         { status: 400 }
       );
     }
 
-    // Log the form data to console
-    console.log("=== New Enquiry Received ===");
-    console.log("Timestamp:", new Date().toISOString());
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("Material Type:", materialType);
-    console.log("Quantity:", quantity);
-    console.log("Delivery Location:", deliveryLocation);
-    console.log("Message:", message || "N/A");
-    console.log("===========================\n");
+    const smtpHost = process.env.SMTP_HOST;
+    const smtpPort = Number(process.env.SMTP_PORT ?? 465);
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+    const smtpFrom = process.env.SMTP_FROM;
+    const adminEmail = process.env.ADMIN_EMAIL;
 
-    // TODO: Future implementation
-    // 1. Send email to customer confirming receipt
-    // 2. Send notification to admin/sales team
-    // Example with Nodemailer:
-    /*
+    if (!smtpHost || !smtpUser || !smtpPass || !smtpFrom || !adminEmail || Number.isNaN(smtpPort)) {
+      console.log(smtpHost, smtpUser, smtpPass, smtpFrom, adminEmail, smtpPort,'ssss');
+      console.warn("SMTP configuration missing. Logging enquiry instead:", body);
+      return NextResponse.json(
+        {
+          success: true,
+          message:
+            "Thank you for your enquiry! Our team will contact you shortly. (Email delivery not configured yet.)",
+        },
+        { status: 200 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: true,
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpPort === 465,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: smtpUser,
+        pass: smtpPass,
       },
     });
 
     await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: email,
-      subject: "Thank you for your enquiry - ConstructionCo",
-      html: `<p>Dear ${name},</p>...`,
+      from: smtpFrom,
+      to: adminEmail,
+      subject: `New enquiry from ${name}`,
+      html: `
+        <h2>New enquiry received</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        ${email ? `<p><strong>Email:</strong> ${email}</p>` : ""}
+        <p><strong>Phone:</strong> ${phone}</p>
+        ${inquiryType ? `<p><strong>Inquiry Type:</strong> ${inquiryType}</p>` : ""}
+        ${materialType ? `<p><strong>Material Type:</strong> ${materialType}</p>` : ""}
+        ${serviceType ? `<p><strong>Service Type:</strong> ${serviceType}</p>` : ""}
+        ${quantity ? `<p><strong>Quantity:</strong> ${quantity}</p>` : ""}
+        <p><strong>Delivery Location:</strong> ${deliveryLocation}</p>
+        <p><strong>Additional Message:</strong> ${message || "N/A"}</p>
+        <p><em>Submitted on ${new Date().toLocaleString()}</em></p>
+      `.replace(/\s{2,}/g, " ").trim(),
     });
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: process.env.ADMIN_EMAIL,
-      subject: "New Enquiry from Website",
-      html: `<h3>New Enquiry Details</h3>...`,
-    });
-    */
-
-    // Return success response
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you for your enquiry! We will contact you shortly.",
-        data: {
-          name,
-          email,
-          materialType,
-        },
+        message: "Thank you for your enquiry! Our team will contact you shortly.",
       },
       { status: 200 }
     );
   } catch (error) {
-    // Log error to console
     console.error("Error processing enquiry:", error);
-
-    // Return error response
     return NextResponse.json(
       {
         success: false,
-        message: "An error occurred while processing your request. Please try again later.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "An error occurred while processing your request. Please try again later.",
       },
       { status: 500 }
     );
   }
 }
 
-// Handle other HTTP methods
 export async function GET() {
   return NextResponse.json(
     {
@@ -143,5 +120,3 @@ export async function GET() {
     { status: 405 }
   );
 }
-
-

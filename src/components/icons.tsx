@@ -1,4 +1,4 @@
-// Professional SVG Icons for Alphacaps.in
+// Professional SVG Icons for AlphaCap
 
 export const BuildingIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className={className}>

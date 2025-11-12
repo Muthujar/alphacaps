@@ -1,542 +1,212 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+
 import Footer from "@/components/Footer";
+import { getProductCatalog, ProductCategory } from "@/data/productCatalog";
+import { isExternalImage } from "@/lib/isExternalImage";
 
-const productCategories = [
-  {
-    id: "tmt-bars",
-    name: "TMT Bars",
-    description: "High-quality TMT bars for structural reinforcement from leading brands",
-    icon: "🔩",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "25mm Vizag Steel TMT Bars",
-        description: "Premium grade TMT bars for heavy construction",
-        specifications: "25mm diameter, IS 1786 certified",
-      },
-      {
-        name: "10mm Vizag Steel TMT Bars", 
-        description: "Standard grade TMT bars for general construction",
-        specifications: "10mm diameter, IS 1786 certified",
-      },
-      {
-        name: "8mm Vizag Steel TMT Bars",
-        description: "Light grade TMT bars for residential construction", 
-        specifications: "8mm diameter, IS 1786 certified",
-      },
-      {
-        name: "10mm ARS TMT Bars",
-        description: "ARS brand TMT bars for quality construction",
-        specifications: "10mm diameter, IS 1786 certified",
-      },
-      {
-        name: "8mm ARS TMT Bars",
-        description: "ARS brand TMT bars for residential projects",
-        specifications: "8mm diameter, IS 1786 certified",
-      },
-    ],
-  },
-  {
-    id: "aac-blocks",
-    name: "AAC Blocks",
-    description: "Lightweight and energy-efficient autoclaved aerated concrete blocks",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "6 Inch Fusion Concrete AAC Block",
-        description: "High-strength AAC blocks for load-bearing walls",
-        specifications: "6 inch thickness, 600x200x150mm",
-      },
-      {
-        name: "4 Inch Fusion Concrete AAC Block",
-        description: "Standard AAC blocks for partition walls",
-        specifications: "4 inch thickness, 600x200x100mm",
-      },
-      {
-        name: "4 Inch NCL Concrete AAC Block",
-        description: "Premium NCL brand AAC blocks",
-        specifications: "4 inch thickness, 600x200x100mm",
-      },
-      {
-        name: "6 Inch NCL Concrete AAC Block",
-        description: "NCL brand AAC blocks for heavy construction",
-        specifications: "6 inch thickness, 600x200x150mm",
-      },
-      {
-        name: "4 Inch Kamcrete Light Weight AAC Blocks",
-        description: "Kamcrete brand lightweight AAC blocks",
-        specifications: "4 inch thickness, lightweight construction",
-      },
-    ],
-  },
-  {
-    id: "construction-cement",
-    name: "Construction Cement",
-    description: "Premium grade cement from leading manufacturers",
-    icon: "🏗️",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "50Kg Ramco Super Grade Cement",
-        description: "High-performance cement for all construction needs",
-        specifications: "50kg bag, IS 12269 certified",
-      },
-      {
-        name: "50Kg UltraTech Cement",
-        description: "India's leading cement brand",
-        specifications: "50kg bag, IS 12269 certified",
-      },
-      {
-        name: "50Kg Ramco Supercrete Cement",
-        description: "Specialized cement for high-strength applications",
-        specifications: "50kg bag, IS 12269 certified",
-      },
-      {
-        name: "50Kg Dalmia DSP Cement",
-        description: "Dalmia brand cement for quality construction",
-        specifications: "50kg bag, IS 12269 certified",
-      },
-      {
-        name: "JSW Concreel HD Cement",
-        description: "JSW brand high-density cement",
-        specifications: "50kg bag, premium grade",
-      },
-    ],
-  },
-  {
-    id: "concrete-blocks",
-    name: "Concrete Blocks",
-    description: "Durable solid concrete blocks for construction",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "8 Inch Solid Concrete Block",
-        description: "Heavy-duty concrete blocks for load-bearing walls",
-        specifications: "8 inch thickness, standard dimensions",
-      },
-      {
-        name: "6 Inch Solid Concrete Block",
-        description: "Standard concrete blocks for general construction",
-        specifications: "6 inch thickness, standard dimensions",
-      },
-      {
-        name: "4 Inch Solid Concrete Block",
-        description: "Light concrete blocks for partition walls",
-        specifications: "4 inch thickness, standard dimensions",
-      },
-      {
-        name: "10 Inch Solid Concrete Block",
-        description: "Extra heavy-duty blocks for commercial construction",
-        specifications: "10 inch thickness, standard dimensions",
-      },
-    ],
-  },
-  {
-    id: "shuttering-plywood",
-    name: "Shuttering Plywood",
-    description: "High-quality film-faced plywood for concrete shuttering",
-    icon: "🪵",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
-    products: [
-      {
-        name: "Mine Gold Film Faced Shuttering Plywood",
-        description: "Premium grade film-faced plywood",
-        specifications: "18mm thickness, marine grade",
-      },
-      {
-        name: "Continental Film Faced Shuttering Plywood Board",
-        description: "Durable shuttering plywood for multiple uses",
-        specifications: "18mm thickness, IS 303 certified",
-      },
-      {
-        name: "Potential Film Faced Shuttering Plywood Board",
-        description: "Cost-effective shuttering solution",
-        specifications: "18mm thickness, IS 303 certified",
-      },
-    ],
-  },
-  {
-    id: "construction-sand",
-    name: "Construction Sand",
-    description: "Washed and graded sand for quality concrete",
-    icon: "🏖️",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "Grey River Construction Sand",
-        description: "Premium washed river sand for concrete",
-        specifications: "Fine grade, IS 383 certified",
-      },
-      {
-        name: "Rough Construction Sand",
-        description: "Coarse sand for masonry and plastering",
-        specifications: "Medium grade, IS 383 certified",
-      },
-      {
-        name: "Brown Rubbish Construction Sand",
-        description: "Economical sand for general construction",
-        specifications: "Standard grade, IS 383 certified",
-      },
-    ],
-  },
-  {
-    id: "ready-mix-concrete",
-    name: "Ready Mix Concrete",
-    description: "Fresh concrete delivered to your construction site",
-    icon: "🚛",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
-    products: [
-      {
-        name: "M15 Ready Mixed Concrete",
-        description: "Standard grade concrete for general construction",
-        specifications: "M15 grade, 7.5 N/mm² strength",
-      },
-      {
-        name: "M20 Ready Mix Concrete",
-        description: "High-strength concrete for structural elements",
-        specifications: "M20 grade, 20 N/mm² strength",
-      },
-      {
-        name: "M30 Ready Mix Concrete",
-        description: "Premium grade concrete for heavy construction",
-        specifications: "M30 grade, 30 N/mm² strength",
-      },
-    ],
-  },
-  {
-    id: "construction-aggregates",
-    name: "Construction Aggregates",
-    description: "Crushed stone aggregates for concrete and construction",
-    icon: "🪨",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "12mm Crushed Stone Aggregate",
-        description: "Fine aggregates for concrete mixing",
-        specifications: "12mm size, IS 383 certified",
-      },
-      {
-        name: "20mm Crushed Stone Aggregate",
-        description: "Standard aggregates for general concrete",
-        specifications: "20mm size, IS 383 certified",
-      },
-      {
-        name: "40mm Crushed Stone Aggregate",
-        description: "Coarse aggregates for heavy construction",
-        specifications: "40mm size, IS 383 certified",
-      },
-      {
-        name: "6mm Crushed Stone Aggregate",
-        description: "Fine aggregates for plastering work",
-        specifications: "6mm size, IS 383 certified",
-      },
-    ],
-  },
-  {
-    id: "paver-blocks",
-    name: "Paver Blocks",
-    description: "Decorative and durable paver blocks for landscaping",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
-    products: [
-      {
-        name: "Red Zig Zag Cement Paver Blocks",
-        description: "Decorative zig zag pattern paver blocks",
-        specifications: "Red color, zig zag pattern",
-      },
-      {
-        name: "Red I Shape Concrete Paver Block",
-        description: "I-shaped concrete paver blocks in red",
-        specifications: "Red color, I-shape design",
-      },
-      {
-        name: "I Shape Grey Concrete Paver Block",
-        description: "Grey I-shaped concrete paver blocks",
-        specifications: "Grey color, I-shape design",
-      },
-      {
-        name: "Grey Zig Zag Concrete Paver Block",
-        description: "Grey zig zag pattern paver blocks",
-        specifications: "Grey color, zig zag pattern",
-      },
-    ],
-  },
-  {
-    id: "concrete-hollow-blocks",
-    name: "Concrete Hollow Blocks",
-    description: "Lightweight hollow concrete blocks for construction",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "4 Inch Concrete Hollow Block",
-        description: "Lightweight hollow blocks for partition walls",
-        specifications: "4 inch thickness, hollow design",
-      },
-      {
-        name: "8 Inch Concrete Hollow Block",
-        description: "Standard hollow blocks for general construction",
-        specifications: "8 inch thickness, hollow design",
-      },
-      {
-        name: "6 Inch Concrete Hollow Block",
-        description: "Medium hollow blocks for construction",
-        specifications: "6 inch thickness, hollow design",
-      },
-    ],
-  },
-  {
-    id: "clay-bricks",
-    name: "Clay Bricks",
-    description: "Traditional clay bricks for construction",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "Red Chamber Clay Bricks",
-        description: "High-quality chamber-fired clay bricks",
-        specifications: "Red color, chamber fired",
-      },
-      {
-        name: "Red Clay Brick",
-        description: "Standard red clay bricks",
-        specifications: "Red color, traditional clay",
-      },
-    ],
-  },
-  {
-    id: "ash-bricks",
-    name: "Ash Bricks",
-    description: "Eco-friendly fly ash bricks",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "Grey Fly Ash Bricks",
-        description: "Eco-friendly fly ash bricks",
-        specifications: "Grey color, fly ash composition",
-      },
-    ],
-  },
-  {
-    id: "wire-cut-bricks",
-    name: "Wire Cut Red Bricks",
-    description: "Precision-cut red bricks for quality construction",
-    icon: "🧱",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "Wire Cut Red Bricks",
-        description: "Precision wire-cut red bricks",
-        specifications: "Red color, wire cut finish",
-      },
-    ],
-  },
-  {
-    id: "hume-pipes",
-    name: "Hume Pipes",
-    description: "RCC Hume pipes for drainage and water management",
-    icon: "🔧",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
-    products: [
-      {
-        name: "1200mm RCC Hume Pipes",
-        description: "Large diameter RCC Hume pipes",
-        specifications: "1200mm diameter, RCC construction",
-      },
-    ],
-  },
-  {
-    id: "ready-mix-plaster",
-    name: "Ready Mix Plaster",
-    description: "Specialized plaster admixtures for construction",
-    icon: "🏗️",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    products: [
-      {
-        name: "Preplast Cement Plaster Admixture",
-        description: "Cement plaster admixture for better workability",
-        specifications: "Plaster admixture, improved workability",
-      },
-    ],
-  },
-  {
-    id: "m-sand",
-    name: "M Sand",
-    description: "Manufactured sand for construction",
-    icon: "🏖️",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-    products: [
-      {
-        name: "Plastering M Sand",
-        description: "Fine manufactured sand for plastering work",
-        specifications: "Fine grade, suitable for plastering",
-      },
-    ],
-  },
-];
+const ROTATION_INTERVAL_MS = 3500;
 
-export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+type ActiveImageState = Record<string, number>;
 
-  const filteredCategories = selectedCategory 
-    ? productCategories.filter(category => category.id === selectedCategory)
-    : productCategories;
+const buildPreviewDeck = (category: ProductCategory) => {
+  const previewPool = category.products
+    .flatMap((product) => product.gallery ?? (product.image ? [product.image] : []))
+    .filter(Boolean);
+
+  if (previewPool.length === 0) {
+    return [category.image];
+  }
+
+  return Array.from(new Set(previewPool));
+};
+
+export default function ProductsPage() {
+  const categories = useMemo(() => getProductCatalog(), []);
+
+  const previewDecks = useMemo(
+    () =>
+      categories.reduce<Record<string, string[]>>((deckMap, category) => {
+        deckMap[category.id] = buildPreviewDeck(category);
+        return deckMap;
+      }, {}),
+    [categories]
+  );
+
+  const [activeImages, setActiveImages] = useState<ActiveImageState>(() =>
+    categories.reduce<ActiveImageState>((acc, category) => {
+      acc[category.id] = 0;
+      return acc;
+    }, {})
+  );
+
+  useEffect(() => {
+    const timers = categories.map((category) => {
+      const deck = previewDecks[category.id] ?? [];
+      if (deck.length <= 1) {
+        return null;
+      }
+
+      return setInterval(() => {
+        setActiveImages((current) => {
+          const currentIndex = current[category.id] ?? 0;
+          const nextIndex = (currentIndex + 1) % deck.length;
+          return { ...current, [category.id]: nextIndex };
+        });
+      }, ROTATION_INTERVAL_MS);
+    });
+
+    return () => {
+      timers.forEach((timer) => {
+        if (timer) {
+          clearInterval(timer);
+        }
+      });
+    };
+  }, [categories, previewDecks]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <section className="bg-black text-white py-16">
-        <div className="section-container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="text-construction-orange">Products</span>
+    <main className="bg-gray-50 min-h-screen">
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-black via-black/90 to-black/80 text-white">
+        <Image
+          src="/images/hero/construction-site-1.jpg"
+          alt="Construction materials"
+          fill
+          priority
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+
+        <div className="section-container relative py-20 lg:py-24">
+          <div className="max-w-4xl space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/15 backdrop-blur">
+              🛒 Products
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
+              Source every building material in one trusted marketplace
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
-              Comprehensive range of construction building materials from trusted brands. 
-              Quality assured with TrustSEAL verification.
+            <p className="text-lg text-white/80">
+              Browse curated categories with rich media, specifications, and ready-to-go enquiry funnels.
+              Each listing is synced with AlphaCap Trade’s latest catalog so you always see real product
+              photography and details.
             </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Filter Section */}
-      <section className="section-container py-8">
-        <div className="flex flex-wrap gap-4 justify-center">
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className={`px-6 py-3 rounded-full font-medium transition-colors ${
-              selectedCategory === null
-                ? "bg-construction-orange text-white"
-                : "bg-white text-gray-700 hover:bg-gray-100"
-            }`}
-          >
-            All Products
-          </button>
-          {productCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-colors ${
-                selectedCategory === category.id
-                  ? "bg-construction-orange text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="section-container pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              {/* Category Header with Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={category.image}
-                  alt={category.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-black/60"></div>
-                <div className="absolute inset-0 flex items-center p-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">{category.icon}</span>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{category.name}</h3>
-                      <p className="text-white/90 text-sm">{category.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Products List */}
-              <div className="p-6">
-                <div className="space-y-4">
-                  {category.products.map((product, productIndex) => (
-                    <motion.div
-                      key={product.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: productIndex * 0.1 }}
-                      className="border border-gray-200 rounded-lg p-4 hover:border-construction-orange hover:shadow-md transition-all"
-                    >
-                      <h4 className="font-semibold text-black mb-2">
-                        {product.name}
-                      </h4>
-                      <p className="text-gray-600 text-sm mb-2">
-                        {product.description}
-                      </p>
-                      <p className="text-xs text-gray-500 mb-3">
-                        {product.specifications}
-                      </p>
-                      <button className="w-full bg-construction-orange text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-construction-orange/90 transition-colors">
-                        Get Quote
-                      </button>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-black text-white py-16">
-        <div className="section-container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Need a Custom Quote?
-            </h2>
-            <p className="text-lg mb-8 text-gray-300">
-              Contact us for competitive pricing on bulk orders and specialized requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/#enquiry"
-                className="btn-primary"
-              >
-                Get Quote Now
-              </a>
-              <a
-                href="tel:+919876543210"
-                className="btn-secondary"
-              >
-                Call Us
+            <div className="flex flex-wrap gap-4">
+              <Link href="/#enquiry" className="btn-primary">
+                Request a quote
+              </Link>
+              <a href="tel:+919876543210" className="btn-secondary">
+                Call trade desk
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
-      
-      {/* Footer */}
+
+      <section className="section-container py-14 lg:py-18">
+        <header className="max-w-3xl space-y-4">
+          <h2 className="text-3xl font-semibold text-gray-900">Shop by category</h2>
+          <p className="text-gray-600">
+            Preview real product imagery curated for AlphaCap on alphacaps.in. Tap into a category to view the full
+            range with specifications, pricing guidance, and media for every SKU.
+          </p>
+        </header>
+
+        <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {categories.map((category) => {
+            const deck = previewDecks[category.id];
+            const activeIndex = activeImages[category.id] ?? 0;
+            const activeImage = deck?.[activeIndex] ?? category.image;
+
+            return (
+              <article
+                key={category.id}
+                className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="relative h-64">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={`${category.id}-${activeIndex}`}
+                      initial={{ opacity: 0.2, scale: 1.02 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={activeImage}
+                        alt={`${category.name} preview`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 33vw"
+                        unoptimized={isExternalImage(activeImage)}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-wide text-white/80">
+                      {category.icon} {category.products.length} products
+                    </span>
+                    <h3 className="mt-3 text-2xl font-semibold leading-snug">{category.name}</h3>
+                    <p className="mt-2 text-sm text-white/80">{category.description}</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-6 p-6">
+                  <div className="grid gap-3 text-sm text-gray-600">
+                    {category.products.slice(0, 3).map((product) => (
+                      <div key={`${category.id}-${product.slug}`} className="flex items-center gap-3">
+                        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 font-medium text-gray-700">
+                          {product.name
+                            .split(" ")
+                            .map((word) => word[0])
+                            .join("")
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                        <div>
+                          <p className="font-medium text-gray-900">{product.name}</p>
+                          {product.price && (
+                            <p className="text-xs uppercase tracking-wide text-construction-orange">
+                              {product.price}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                    {category.products.length > 3 && (
+                      <p className="text-xs uppercase tracking-wide text-gray-500">
+                        +{category.products.length - 3} more products inside
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href={`/products/categories/${category.id}`}
+                      className="btn-primary flex-1 min-w-[150px] text-center"
+                    >
+                      Explore category
+                    </Link>
+                    <Link href="/#enquiry" className="btn-secondary flex-1 min-w-[150px] text-center">
+                      Request quote
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
 }
+
+
+

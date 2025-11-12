@@ -10,7 +10,7 @@ import * as z from "zod";
 // Form validation schema
 const enquirySchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().email("Please enter a valid email address").optional().or(z.literal("")),
   phone: z.string().regex(/^[0-9]{10,15}$/, "Please enter a valid phone number (10-15 digits)"),
   inquiryType: z.string().min(1, "Please select an inquiry type"),
   materialType: z.string().optional(),
@@ -141,8 +141,8 @@ export default function EnquiryForm() {
           {/* Email and Phone Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="email" className="label-text">
-                Email Address <span className="text-red-500">*</span>
+            <label htmlFor="email" className="label-text">
+              Email Address
               </label>
               <input
                 type="email"
