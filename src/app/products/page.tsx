@@ -108,10 +108,10 @@ export default function ProductsPage() {
 
       <section className="section-container py-14 lg:py-18">
         <header className="max-w-3xl space-y-4">
-          <h2 className="text-3xl font-semibold text-gray-900">Shop by category</h2>
+          <h2 className="text-3xl font-semibold text-gray-900">Browse Our Materials Portfolio</h2>
           <p className="text-gray-600">
-            Preview real product imagery curated for AlphaCap on alphacaps.in. Tap into a category to view the full
-            range with specifications, pricing guidance, and media for every SKU.
+            Explore highlighted categories from AlphaCap&apos;s current supply roster. Each collection showcases representative
+            products we deliver; reach out to tailor availability, specifications, and pricing to your project.
           </p>
         </header>
 

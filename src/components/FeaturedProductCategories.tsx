@@ -77,11 +77,11 @@ export default function FeaturedProductCategories() {
           🔍 Featured catalog
         </span>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Shop essential building materials by category
+          Explore Our Materials Portfolio
         </h2>
         <p className="text-base md:text-lg text-gray-600">
-          Browse a curated snapshot of AlphaCap&apos;s product catalog on alphacaps.in. Explore the highlighted
-          categories below, then tap through to view the entire marketplace.
+          Browse a curated snapshot of AlphaCap&apos;s supply lineup. Discover spotlight categories and connect with us to
+          access the full catalog and project-specific availability.
         </p>
       </div>
 

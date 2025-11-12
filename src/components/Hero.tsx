@@ -22,6 +22,33 @@ const infraFeatures = [
   "Specialists for civil & interiors",
 ];
 
+const heroBackgrounds = [
+  {
+    src: "/images/hero/mat6.jpg",
+    alt: "Bulk cement, sand, aggregates, and bricks for delivery",
+    priority: false,
+    y: "-4%",
+    scale: 1.08,
+    duration: 26,
+  },
+  {
+    src: "/images/hero/mat5.avif",
+    alt: "Construction crew assembling rebar framework",
+    priority: false,
+    y: "-6%",
+    scale: 1.1,
+    duration: 28,
+  },
+  {
+    src: "/images/hero/mat2.png",
+    alt: "Steel reinforcement bars ready for dispatch",
+    priority: true,
+    y: "-5%",
+    scale: 1.07,
+    duration: 24,
+  },
+];
+
 export default function Hero() {
   return (
     <section className="relative min-h-[70vh] md:min-h-[75vh] flex items-center overflow-hidden pt-16 md:pt-20">
@@ -30,34 +57,31 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-black">
           <div className="absolute inset-0 opacity-80">
             <div className="relative w-[300%] h-full flex animate-hero-carousel">
-              <div className="relative w-1/3 h-full">
-                <Image
-                  src="/images/hero/mat2.png"
-                  alt="Steel reinforcement bars ready for dispatch"
-                  fill
-                  className="object-cover"
-                  priority
-                  quality={90}
-                />
-              </div>
-              <div className="relative w-1/3 h-full">
-                <Image
-                  src="/images/hero/mat5.avif"
-                  alt="Construction crew assembling rebar framework"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
-              </div>
-              <div className="relative w-1/3 h-full">
-                <Image
-                  src="/images/hero/mat6.jpg"
-                  alt="Bulk cement, sand, aggregates, and bricks for delivery"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
-              </div>
+              {heroBackgrounds.map(({ src, alt, priority, y, scale, duration }, index) => (
+                <motion.div
+                  key={src}
+                  className="relative w-1/3 h-full"
+                  initial={{ scale: 1, y: "0%" }}
+                  animate={{ scale, y }}
+                  transition={{
+                    duration,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                    delay: index * 0.2,
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    className="object-cover"
+                    priority={priority}
+                    quality={90}
+                  />
+                  <div className="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none" />
+                </motion.div>
+              ))}
             </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/75 to-black/60" />
