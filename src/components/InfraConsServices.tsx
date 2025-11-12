@@ -69,7 +69,7 @@ const services = [
         image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
       },
       {
-        name: "Best Concrete",
+        name: "Beads Concrete",
         details: "Premium quality concrete ensuring durability and strength for critical structures.",
         image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
       },

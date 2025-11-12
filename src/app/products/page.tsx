@@ -73,7 +73,7 @@ export default function ProductsPage() {
     <main className="bg-gray-50 min-h-screen">
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-black via-black/90 to-black/80 text-white">
         <Image
-          src="/images/hero/construction-site-1.jpg"
+          src="/images/hero/mat6.jpg"
           alt="Construction materials"
           fill
           priority

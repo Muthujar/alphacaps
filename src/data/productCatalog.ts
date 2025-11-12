@@ -111,7 +111,7 @@ const baseProductCategories: BaseProductCategory[] = [
   {
     id: "construction-cement",
     name: "Construction Cement",
-    description: "Premium grade cement from leading manufacturers",
+    description: "Premium grade PPC, OPC, and PSC cement from leading manufacturers",
     icon: "🏗️",
     image: "/images/products/cement.jpg",
     products: [

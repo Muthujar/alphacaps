@@ -18,7 +18,7 @@ const products = [
   },
   {
     name: "Construction Cement",
-    description: "Ramco, UltraTech, Dalmia, JSW brands (50Kg)",
+    description: "Ramco, UltraTech, Dalmia, JSW brands (PPC, OPC, PSC - 50Kg)",
     image: "/images/products/cement.jpg",
   },
   {
