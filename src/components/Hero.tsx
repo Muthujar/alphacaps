@@ -3,59 +3,42 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const heroStats = [
-  { label: "TrustSEAL Verified", value: "by IndiaMART" },
-  { label: "Dispatch SLA", value: "24-48 Hrs" },
-  { label: "Projects Delivered", value: "50+" },
-  { label: "Customer Support", value: "24/7" },
-];
-
-const tradeFeatures = [
-  "Curated catalog of 200+ materials",
-  "Live pricing assistance & logistics",
-  "Quality audits before dispatch",
-];
-
-const infraFeatures = [
-  "Design-to-delivery project teams",
-  "Transparent progress dashboards",
-  "Specialists for civil & interiors",
-];
 
 const heroBackgrounds = [
-  {
-    src: "/images/hero/mat6.jpg",
-    alt: "Bulk cement, sand, aggregates, and bricks for delivery",
-    priority: false,
-    y: "-4%",
-    scale: 1.08,
-    duration: 26,
-  },
-  {
-    src: "/images/hero/mat5.avif",
-    alt: "Construction crew assembling rebar framework",
-    priority: false,
-    y: "-6%",
-    scale: 1.1,
-    duration: 28,
-  },
   {
     src: "/images/hero/mat2.png",
     alt: "Steel reinforcement bars ready for dispatch",
     priority: true,
-    y: "-5%",
-    scale: 1.07,
+    y: "0%",
+    scale: 1.05,
     duration: 24,
   },
+  {
+    src: "/images/hero/mat6.jpg",
+    alt: "Bulk cement, sand, aggregates, and bricks for delivery",
+    priority: false,
+    y: "0%",
+    scale: 1.06,
+    duration: 26,
+  },
+  {
+    src: "/images/hero/mat7.jpg",
+    alt: "Construction crew assembling rebar framework",
+    priority: false,
+    y: "0%",
+    scale: 1.08,
+    duration: 28,
+  },
+
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[75vh] flex items-center overflow-hidden pt-16 md:pt-20">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-black">
-          <div className="absolute inset-0 opacity-80">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40">
+          <div className="absolute inset-0 opacity-90">
             <div className="relative w-[300%] h-full flex animate-hero-carousel">
               {heroBackgrounds.map(({ src, alt, priority, y, scale, duration }, index) => (
                 <motion.div
@@ -79,175 +62,135 @@ export default function Hero() {
                     priority={priority}
                     quality={90}
                   />
-                  <div className="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/10 mix-blend-multiply pointer-events-none" />
                 </motion.div>
               ))}
             </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/75 to-black/60" />
-          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-construction-orange/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-black/20" />
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black/60 to-transparent" />
         </div>
       </div>
 
       {/* Content */}
       <div className="relative z-20 w-full">
-        <div className="section-container text-white py-10 md:py-12">
-          <div className="max-w-6xl mx-auto">
-            <div className="space-y-10 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 backdrop-blur-md text-sm font-medium text-white/80">
-                <span className="w-2.5 h-2.5 rounded-full bg-construction-orange animate-pulse" />
-                <span>Materials • Construction • Interiors</span>
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 text-white py-16 md:py-24">
+          {/* AlphaCap Groups - Full Width Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-12 w-full pt-4 sm:pt-0"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center md:justify-start w-full">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
+                <span className="text-construction-orange">AlphaCap</span> Groups
+              </h2>
+              <div className="h-px flex-1 bg-gradient-to-r from-white/30 via-white/20 to-transparent hidden sm:block max-w-md"></div>
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 justify-center md:justify-start flex-1">
+                {[
+                  { 
+                    name: 'Trade Platform', 
+                    baseColor: 'orange',
+                    gradient: 'from-amber-500 via-orange-500 to-orange-600',
+                    borderColor: 'border-orange-400/50',
+                    shadowColor: 'shadow-orange-500/30',
+                    pattern: 'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.2)_1px,transparent_0)]',
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    )
+                  },
+                  { 
+                    name: 'Infracons', 
+                    baseColor: 'blue',
+                    gradient: 'from-blue-600 via-indigo-600 to-blue-700',
+                    borderColor: 'border-blue-400/50',
+                    shadowColor: 'shadow-blue-500/30',
+                    pattern: 'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.2)_1px,transparent_0)]',
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    )
+                  },
+                  { 
+                    name: 'Insurance', 
+                    baseColor: 'emerald',
+                    gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
+                    borderColor: 'border-emerald-400/50',
+                    shadowColor: 'shadow-emerald-500/30',
+                    pattern: 'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.2)_1px,transparent_0)]',
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    )
+                  }
+                ].map((group, index) => (
+                  <motion.div
+                    key={group.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 + index * 0.1, duration: 0.5, ease: "easeOut" }}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    className={`bg-gradient-to-br ${group.gradient} ${group.borderColor} border-2 rounded-xl px-6 py-3.5 text-sm font-bold text-white ${group.shadowColor} shadow-xl transition-all duration-300 cursor-pointer flex items-center gap-2.5 relative overflow-hidden group`}
+                  >
+                    {/* Pattern Overlay */}
+                    <div className={`absolute inset-0 ${group.pattern} bg-[length:16px_16px] opacity-40`}></div>
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    {/* Content */}
+                    <span className="relative z-10 flex-shrink-0">{group.icon}</span>
+                    <span className="relative z-10">{group.name}</span>
+                  </motion.div>
+                ))}
               </div>
+            </div>
+          </motion.div>
 
+          {/* Main Hero Content */}
+          <div className="max-w-4xl">
+            <div className="space-y-10 text-center md:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="space-y-6"
+                className="space-y-8"
               >
                 <motion.h1
-                  className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-tight"
+                  className="text-4xl md:text-6xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05, duration: 0.65, ease: "easeOut" }}
                 >
-                  AlphaCap supplies trusted building materials and builds infrastructure projects
+                  <span className="block mb-2">YOUR RELIABLE PARTNER FOR</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">PREMIUM CONSTRUCTION</span>
+                  <span className="block mt-2">MATERIAL SUPPLY</span>
                 </motion.h1>
                 <motion.p
-                  className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto md:mx-0"
+                  className="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto md:mx-0 leading-relaxed font-light"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.65, ease: "easeOut" }}
                 >
-                  From sourcing steel and cement to running on-site execution, we deliver clear prices, steady updates, and dependable quality on every project.
+                  We deliver clear prices, steady updates, and dependable quality on every project.
                 </motion.p>
               </motion.div>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start pt-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.6, ease: "easeOut" }}
               >
-                <a href="#enquiry" className="btn-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-transform">
+                <a href="#enquiry" className="btn-primary text-lg px-8 py-4 shadow-xl shadow-orange-500/20 hover:shadow-orange-500/30 hover:-translate-y-1 transition-all duration-300 rounded-xl">
                   Request a Quote
                 </a>
                 {/* <a href="#services" className="btn-secondary hover:-translate-y-0.5 transition-transform">
                   Explore InfraCons
                 </a> */}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 35 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.6, ease: "easeOut" }}
-                className="mt-10 md:mt-12"
-              >
-                <div className="bg-white/10 border border-white/15 rounded-3xl backdrop-blur-xl p-6 md:p-8 shadow-2xl">
-                  <div className="grid gap-6 lg:grid-cols-[1.1fr,1.1fr] xl:grid-cols-[1.1fr,1.1fr]">
-                    <motion.article
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-                      className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-construction-orange/15 via-transparent to-transparent" />
-                      <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
-                      <div className="relative flex items-start justify-between">
-                        <div className="space-y-4">
-                          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                            Trade Platform
-                          </div>
-                          <h2 className="text-2xl font-semibold text-white drop-shadow">
-                            Building materials delivered when your site needs them
-                          </h2>
-                        </div>
-                        <div className="hidden sm:flex items-center justify-center w-12 h-12 rounded-2xl bg-black/40 text-construction-orange shadow-inner">
-                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                          </svg>
-                        </div>
-                      </div>
-                      <ul className="relative mt-6 space-y-3 text-sm text-gray-100">
-                        {tradeFeatures.map((feature) => (
-                          <li key={feature} className="flex items-start gap-3">
-                            <span className="mt-1 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-construction-orange shadow-[0_0_0_6px_rgba(255,130,0,0.08)]" />
-                            <span className="leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="relative mt-8 flex flex-wrap gap-3">
-                        <a href="/products" className="inline-flex items-center gap-2 rounded-full bg-construction-orange/90 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-construction-orange/40 transition-transform hover:-translate-y-0.5 hover:bg-construction-orange">
-                          Explore materials
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </a>
-                        <a href="#products" className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors">
-                          Featured catalog →
-                        </a>
-                      </div>
-                    </motion.article>
-
-                    <motion.article
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.45, duration: 0.6, ease: "easeOut" }}
-                      className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-transparent to-transparent" />
-                      <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
-                      <div className="relative flex items-start justify-between">
-                        <div className="space-y-4">
-                          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                            InfraCons
-                          </div>
-                          <h2 className="text-2xl font-semibold text-white drop-shadow">
-                            Execution partners with total accountability
-                          </h2>
-                        </div>
-                        <div className="hidden sm:flex items-center justify-center w-12 h-12 rounded-2xl bg-black/40 text-sky-300 shadow-inner">
-                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                          </svg>
-                        </div>
-                      </div>
-                      <ul className="relative mt-6 space-y-3 text-sm text-gray-100">
-                        {infraFeatures.map((feature) => (
-                          <li key={feature} className="flex items-start gap-3">
-                            <span className="mt-1 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-sky-300 shadow-[0_0_0_6px_rgba(56,189,248,0.08)]" />
-                            <span className="leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="relative mt-8 flex flex-wrap gap-3">
-                        <a href="#services" className="inline-flex items-center gap-2 rounded-full bg-[#1E2761] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#1E2761]/40 transition-transform hover:-translate-y-0.5 hover:bg-[#273276]">
-                          Explore InfraCons
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </a>
-                        <a href="#enquiry" className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors">
-                          Book a consultation →
-                        </a>
-                      </div>
-                    </motion.article>
-                  </div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 35 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.55, duration: 0.6, ease: "easeOut" }}
-                    className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left text-sm text-gray-300"
-                  >
-                    {heroStats.map((item) => (
-                      <div key={item.label} className="bg-white/5 rounded-2xl px-4 py-3 border border-white/10">
-                        <div className="text-xs uppercase tracking-wide text-gray-400">{item.label}</div>
-                        <div className="text-lg font-semibold text-white mt-1">{item.value}</div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </div>
               </motion.div>
             </div>
           </div>
@@ -255,21 +198,22 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <svg
-          className="w-6 h-6 text-white"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce hidden lg:block">
+        <div className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+          <span className="text-xs uppercase tracking-widest font-medium text-white">Scroll</span>
+          <svg
+            className="w-6 h-6 text-white"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
       </div>
     </section>
   );
 }
-
-

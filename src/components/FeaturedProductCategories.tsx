@@ -10,7 +10,8 @@ import { isExternalImage } from "@/lib/isExternalImage";
 
 const ROTATION_INTERVAL_MS = 3500;
 
-const MAX_FEATURED = 5;
+const MAX_FEATURED_DESKTOP = 5;
+const MAX_FEATURED_MOBILE = 3;
 type ActiveImageState = Record<string, number>;
 
 const buildPreviewDeck = (category: ProductCategory) => {
@@ -26,8 +27,21 @@ const buildPreviewDeck = (category: ProductCategory) => {
 };
 
 export default function FeaturedProductCategories() {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const catalog = useMemo(() => getProductCatalog(), []);
-  const featuredCategories = useMemo(() => catalog.slice(0, MAX_FEATURED), [catalog]);
+  const maxFeatured = isMobile ? MAX_FEATURED_MOBILE : MAX_FEATURED_DESKTOP;
+  const featuredCategories = useMemo(() => catalog.slice(0, maxFeatured), [catalog, maxFeatured]);
 
   const previewDecks = useMemo(
     () =>
@@ -118,9 +132,9 @@ export default function FeaturedProductCategories() {
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white space-y-2">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-wide text-white/80">
+                  {/* <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-wide text-white/80">
                     {category.icon} {category.products.length} products
-                  </span>
+                  </span> */}
                   <h3 className="text-2xl font-semibold leading-snug">{category.name}</h3>
                   <p className="text-sm text-white/80 line-clamp-2">{category.description}</p>
                 </div>

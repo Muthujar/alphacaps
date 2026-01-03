@@ -31,6 +31,11 @@ const tradePlatformProducts = [
 
 const infraConsServices = [
   {
+    category: "RMC Services",
+    items: ["Temperature Resistant", "Beads Concrete", "Color Concrete"],
+    icon: <TruckIcon />,
+  },
+  {
     category: "Construction",
     items: ["Commercial", "Residential", "Infrastructure"],
     icon: <OfficeIcon />,
@@ -39,11 +44,6 @@ const infraConsServices = [
     category: "Interior",
     items: ["Residential Interior", "Commercial Interior"],
     icon: <HomeIcon />,
-  },
-  {
-    category: "RMC Services",
-    items: ["Special Concrete", "Temperature Resistant", "Best Concrete", "Color Concrete"],
-    icon: <TruckIcon />,
   },
 ];
 
@@ -223,7 +223,7 @@ export default function BusinessVerticals() {
           </h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             From sourcing the finest building materials to executing complete construction projects, 
-            AlphaCap is your trusted partner for all construction needs. Our integrated approach 
+            AlphaCap is your partner for all construction needs. Our integrated approach 
             ensures quality, consistency, and cost-effectiveness throughout your project lifecycle.
           </p>
         </div>

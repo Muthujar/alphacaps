@@ -8,13 +8,14 @@ export default function Footer() {
   return (
     <footer className="bg-construction-dark text-white">
       <div className="section-container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            className="lg:col-span-1"
           >
             <h3 className="text-2xl font-bold text-white mb-4">
               AlphaCap
@@ -32,6 +33,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
+            className="lg:col-span-1"
           >
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -58,47 +60,89 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info - Wider section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
+            className="md:col-span-2 lg:col-span-3"
           >
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-start">
-                <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>
-                  First Floor, Door No. A H 266, 7th Main Road,<br />
-                  Annanagar, Opposite Balaji Apartments,<br />
-                  Chennai-600040, Tamil Nadu, India
-                </span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <div>
-                  <div>Contact: Lokesh (Manager)</div>
-                  <a
-                    href="tel:+919876543210"
-                    className="mt-1 block text-sm font-medium text-construction-orange hover:text-construction-orange/80"
-                  >
-                    Phone: +91 98765 43210
-                  </a>
+            <div className="space-y-4 text-gray-300">
+              {/* Addresses - Side by Side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <div className="font-medium mb-1">Head office:</div>
+                    <span className="text-sm">
+                      First Floor, Door No. A H 266, 7th Main Road,<br />
+                      Annanagar, Opposite Balaji Apartments,<br />
+                      Chennai-600040, Tamil Nadu, India
+                    </span>
+                  </div>
                 </div>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>GST: 33ABACA3900B1ZM</span>
-              </li>
-            </ul>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <div className="font-medium mb-1">Office address:</div>
+                    <span className="text-sm">
+                      8/36, Balaji nagar,<br />
+                      Vanagaram,<br />
+                      Chennai-95.
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Contact and GST */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <div>
+                    <div className="font-medium mb-1">Contact us:</div>
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href="tel:+919629124777"
+                        className="text-construction-orange hover:text-construction-orange/80 font-medium"
+                      >
+                        9629124777
+                      </a>
+                      <a
+                        href="tel:+918925516010"
+                        className="text-construction-orange hover:text-construction-orange/80 font-medium"
+                      >
+                        8925516010
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div className="flex flex-col gap-2">
+                    <div>
+                      <span className="font-medium">GST (Trade Platform):</span>
+                      <span className="ml-1">33ABACA3900B1ZM</span>
+                    </div>
+                    <div>
+                      <span className="font-medium">GST (InfraCons):</span>
+                      <span className="ml-1">33ABBCA8165F1ZU</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Social Links */}
@@ -107,6 +151,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
+            className="md:col-span-2 lg:col-span-1"
           >
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex">

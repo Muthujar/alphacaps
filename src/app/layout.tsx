@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description: "TrustSEAL verified (by IndiaMART) company offering premium building materials (Trade Platform) and expert construction & interior services (InfraCons) in Chennai. Quality materials, expert execution, moral business policies with crystal pure transparency.",
   keywords: "AlphaCap, alphacaps.in, construction materials Chennai, building materials supplier, construction services Chennai, interior design Chennai, TMT bars, AAC blocks, cement supplier, RMC services, commercial construction, residential construction, TrustSEAL verified by IndiaMART",
   authors: [{ name: "AlphaCap" }],
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: "AlphaCap | alphacaps.in - Complete Construction Solutions",
     description: "TrustSEAL verified by IndiaMART, offering premium building materials and expert construction & interior services in Chennai. Quality materials, expert execution, moral business policies.",
@@ -41,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" type="image/png" />
       </head>
       <body className={`${inter.variable} font-sans`}>
         <Header />

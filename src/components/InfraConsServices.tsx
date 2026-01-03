@@ -8,6 +8,31 @@ import { BuildingIcon, HomeIcon, TruckIcon } from "./icons";
 
 const services = [
   {
+    title: "RMC Services",
+    icon: <TruckIcon className="w-16 h-16" />,
+    description: "Specialized Ready Mix Concrete solutions for your project requirements.",
+    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+    categories: [
+      {
+        name: "Temperature Resistant Concrete",
+        details: "High-performance concrete designed to withstand extreme temperature variations.",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
+      },
+      {
+        name: "Beads Concrete",
+        details: "Premium quality concrete ensuring durability and strength for critical structures.",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
+      },
+      {
+        name: "Color Concrete",
+        details: "Aesthetically appealing colored concrete for decorative and functional applications.",
+        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-1000x1000.jpg",
+      },
+    ],
+    color: "from-black to-gray-900",
+    borderColor: "border-construction-orange",
+  },
+  {
     title: "Construction Services",
     icon: <BuildingIcon className="w-16 h-16" />,
     description: "Expert construction services for commercial, residential, and infrastructure projects.",
@@ -52,36 +77,6 @@ const services = [
     color: "from-black to-gray-900",
     borderColor: "border-construction-orange",
   },
-  {
-    title: "RMC Services",
-    icon: <TruckIcon className="w-16 h-16" />,
-    description: "Specialized Ready Mix Concrete solutions for your project requirements.",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
-    categories: [
-      {
-        name: "Special Concrete",
-        details: "Custom concrete mixes for specific project requirements and applications.",
-        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-1000x1000.jpg",
-      },
-      {
-        name: "Temperature Resistant Concrete",
-        details: "High-performance concrete designed to withstand extreme temperature variations.",
-        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
-      },
-      {
-        name: "Beads Concrete",
-        details: "Premium quality concrete ensuring durability and strength for critical structures.",
-        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
-      },
-      {
-        name: "Color Concrete",
-        details: "Aesthetically appealing colored concrete for decorative and functional applications.",
-        image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-1000x1000.jpg",
-      },
-    ],
-    color: "from-black to-gray-900",
-    borderColor: "border-construction-orange",
-  },
 ];
 
 export default function InfraConsServices() {
@@ -106,13 +101,18 @@ export default function InfraConsServices() {
       </motion.div>
 
       <div className="space-y-12">
-        {services.map((service, serviceIndex) => (
+        {services.map((service, serviceIndex) => {
+          // Generate ID from service title (e.g., "RMC Services" -> "rmc-services")
+          const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
+          return (
           <motion.div
             key={service.title}
+            id={serviceId}
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: serviceIndex * 0.2 }}
             className={`bg-white rounded-xl shadow-lg overflow-hidden border-t-4 ${service.borderColor}`}
+            style={{ scrollMarginTop: '100px' }}
           >
             {/* Service Header with Image */}
             <div className="relative">
@@ -169,7 +169,8 @@ export default function InfraConsServices() {
               </div>
             </div>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
 
       {/* CTA Section */}

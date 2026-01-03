@@ -6,8 +6,10 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Footer from "@/components/Footer";
+import ProductHeroSection from "@/components/ProductHeroSection";
 import { getProductCatalog, ProductCategory } from "@/data/productCatalog";
 import { isExternalImage } from "@/lib/isExternalImage";
+import PriceDisplay from "@/components/PriceDisplay";
 
 const ROTATION_INTERVAL_MS = 3500;
 
@@ -71,40 +73,17 @@ export default function ProductsPage() {
 
   return (
     <main className="bg-gray-50 min-h-screen">
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-black via-black/90 to-black/80 text-white">
-        <Image
-          src="/images/hero/mat6.jpg"
-          alt="Construction materials"
-          fill
-          priority
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
-
-        <div className="section-container relative py-20 lg:py-24">
-          <div className="max-w-4xl space-y-6">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/15 backdrop-blur">
-              🛒 Products
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-              Source every building material in one trusted marketplace
-            </h1>
-            <p className="text-lg text-white/80">
-              Browse curated categories with rich media, specifications, and ready-to-go enquiry funnels.
-              Each listing is synced with AlphaCap Trade’s latest catalog so you always see real product
-              photography and details.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/#enquiry" className="btn-primary">
-                Request a quote
-              </Link>
-              <a href="tel:+919876543210" className="btn-secondary">
-                Call trade desk
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductHeroSection
+        title="Source every building material in one marketplace"
+        description="Browse curated categories with rich media, specifications, and ready-to-go enquiry funnels. Each listing is synced with AlphaCap Trade's latest catalog so you always see real product photography and details."
+        image="/images/hero/mat6.jpg"
+        imageAlt="Construction materials"
+        badge={{
+          icon: "🛒",
+          label: "Products",
+        }}
+        showButtons={true}
+      />
 
       <section className="section-container py-14 lg:py-18">
         <header className="max-w-3xl space-y-4">
@@ -171,9 +150,9 @@ export default function ProductsPage() {
                         <div>
                           <p className="font-medium text-gray-900">{product.name}</p>
                           {product.price && (
-                            <p className="text-xs uppercase tracking-wide text-construction-orange">
-                              {product.price}
-                            </p>
+                            <div className="mt-0.5">
+                              <PriceDisplay price={product.price} className="text-xs uppercase tracking-wide" />
+                            </div>
                           )}
                         </div>
                       </div>

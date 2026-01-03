@@ -6,15 +6,18 @@ import Link from "next/link";
 
 import { isExternalImage } from "@/lib/isExternalImage";
 import { makeProductSlug, type ProductInfo } from "@/data/productCatalog";
+import PriceDisplay from "./PriceDisplay";
+import ProductActionButtons from "./ProductActionButtons";
 
 type ProductCardProps = {
   product: ProductInfo;
   fallbackImage: string;
+  initialImageIndex?: number;
 };
 
 const PREVIEW_LIMIT = 4;
 
-export default function ProductCard({ product, fallbackImage }: ProductCardProps) {
+export default function ProductCard({ product, fallbackImage, initialImageIndex = 0 }: ProductCardProps) {
   const primaryImage = product.hiRes ?? product.image ?? fallbackImage;
 
   const galleryImages = useMemo(() => {
@@ -39,7 +42,18 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
     return deduped;
   }, [primaryImage, product.gallery]);
 
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  // Calculate initial index, rotating through available images
+  const calculatedInitialIndex = useMemo(() => {
+    if (galleryImages.length === 0) return 0;
+    return initialImageIndex % galleryImages.length;
+  }, [initialImageIndex, galleryImages.length]);
+
+  const [activeImageIndex, setActiveImageIndex] = useState(calculatedInitialIndex);
+
+  // Update activeImageIndex when calculatedInitialIndex changes
+  useEffect(() => {
+    setActiveImageIndex(calculatedInitialIndex);
+  }, [calculatedInitialIndex]);
 
   useEffect(() => {
     if (activeImageIndex >= galleryImages.length) {
@@ -65,7 +79,7 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
                 src={activeImage}
                 alt={`${product.name} image`}
                 fill
-                className="object-cover transition-opacity duration-200"
+                className={`${product.name.toLowerCase().includes("paver block") ? "object-contain" : "object-cover"} transition-opacity duration-200`}
                 unoptimized={isExternalImage(activeImage)}
                 sizes="(max-width: 1024px) 100vw, 300px"
               />
@@ -81,6 +95,7 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
               {previewImages.map((imageUrl) => {
                 const index = galleryImages.indexOf(imageUrl);
                 const isActive = index === activeImageIndex;
+                const isPaverBlock = product.name.toLowerCase().includes("paver block");
 
                 return (
                   <button
@@ -98,7 +113,7 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
                       src={imageUrl}
                       alt={`${product.name} thumbnail ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className={isPaverBlock ? "object-contain bg-gray-50" : "object-cover"}
                       unoptimized={isExternalImage(imageUrl)}
                       sizes="56px"
                     />
@@ -110,20 +125,29 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
         </div>
 
         <div className="space-y-4">
-          <div className="flex flex-wrap justify-between gap-3">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
-              {product.price && (
-                <p className="mt-1 text-sm font-medium text-construction-orange">{product.price}</p>
-              )}
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
+            <div className="mt-1">
+              <PriceDisplay price={product.price} />
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="/#enquiry" className="btn-primary text-xs sm:text-sm">
-                Request quote
-              </Link>
-              <a href="tel:+919876543210" className="btn-secondary text-xs sm:text-sm">
-                Call trade desk
-              </a>
+            {/* Show brand, size if available (grades will be shown in details) */}
+            {(product.brand || product.size) && (
+              <div className="mt-2 flex flex-wrap gap-2">
+                {product.brand && (
+                  <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800">
+                    {product.brand}
+                  </span>
+                )}
+                {product.size && (
+                  <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+                    {product.size}
+                  </span>
+                )}
+              </div>
+            )}
+            {/* Action Buttons - Common placement for all product cards */}
+            <div className="mt-4">
+              <ProductActionButtons variant="small" />
             </div>
           </div>
 
@@ -135,36 +159,41 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
             <p className="text-xs uppercase tracking-wide text-gray-500">{product.specifications}</p>
           )}
 
-          {product.details && product.details.length > 0 && (
+          {(product.grade || (product.details && product.details.length > 0)) && (
             <dl className="grid gap-3 sm:grid-cols-2">
-              {product.details.map((detail) => (
-                <div
-                  key={`${product.slug}-${makeProductSlug(detail.label)}`}
-                  className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3"
-                >
+              {/* Show grades as a detail item with bullets if available */}
+              {product.grade && (
+                <div className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
                   <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    {detail.label}
+                    Available Grades
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-800">{detail.value}</dd>
+                  <dd className="mt-1 text-sm text-gray-800">
+                    <ul className="list-disc list-inside space-y-1">
+                      {product.grade.split(",").map((grade, index) => {
+                        // Extract short form (e.g., "PPC" from "PPC (PORTLAND POZZOLONA CEMENT)")
+                        const trimmedGrade = grade.trim();
+                        const shortForm = trimmedGrade.split("(")[0].trim();
+                        return <li key={index}>{shortForm}</li>;
+                      })}
+                    </ul>
+                  </dd>
                 </div>
-              ))}
+              )}
+              {/* Show other details */}
+              {product.details
+                ?.filter((detail) => detail.label !== "Available Brands" && detail.label !== "Available Grades" && detail.label !== "Cement Grade")
+                .map((detail) => (
+                  <div
+                    key={`${product.slug}-${makeProductSlug(detail.label)}`}
+                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3"
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      {detail.label}
+                    </dt>
+                    <dd className="mt-1 text-sm text-gray-800">{detail.value}</dd>
+                  </div>
+                ))}
             </dl>
-          )}
-
-          {product.video && (
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
-              <div className="font-semibold text-gray-900">Product video</div>
-              <p className="mt-1">
-                <a
-                  href={product.video}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-construction-orange hover:text-construction-orange/80"
-                >
-                  Watch now →
-                </a>
-              </p>
-            </div>
           )}
 
           {galleryImages.length > 1 && (
@@ -175,6 +204,7 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
               <div className="flex flex-wrap gap-3">
                 {galleryImages.map((imageUrl, index) => {
                   const isActive = index === activeImageIndex;
+                  const isPaverBlock = product.name.toLowerCase().includes("paver block");
                   return (
                     <button
                       type="button"
@@ -191,7 +221,7 @@ export default function ProductCard({ product, fallbackImage }: ProductCardProps
                         src={imageUrl}
                         alt={`${product.name} gallery image ${index + 1}`}
                         fill
-                        className="object-cover"
+                        className={isPaverBlock ? "object-contain bg-gray-50" : "object-cover"}
                         unoptimized={isExternalImage(imageUrl)}
                         sizes="56px"
                       />

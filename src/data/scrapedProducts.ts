@@ -7,7 +7,7 @@ type ScrapedProduct = {
   name: string;
   image: string;
   hiRes: string;
-  price: string;
+  price?: string;
   details: ScrapedProductDetail[];
   description: string;
   video?: string;
@@ -1018,6 +1018,7 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
       ]
     }
   ],
+  "solid-blocks": [],
   "construction-sand": [
     {
       name: "Grey River Construction Sand",
@@ -1138,13 +1139,60 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
   ],
   "ready-mix-concrete": [
     {
+      name: "M5 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 4,500 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M5" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M5" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Product Type", value: "Ready Mix Concrete" }
+      ],
+      description:
+        "M5 low-grade concrete mix suitable for non-structural applications, foundation bedding, and mass concrete works.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M10 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 4,900 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M10" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M10" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "Lean M10 concrete mix provided in bulk for blinding and leveling layers ahead of structural pours.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
       name: "M15 Ready Mixed Concrete",
       image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
       hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
       price: "Approx. Rs 5,200 / Cubic Meter",
       details: [
         { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
-        { label: "Concrete Grade", value: "M25" },
+        { label: "Concrete Grade", value: "M15" },
         { label: "Packaging Type", value: "Loose" },
         { label: "Grade", value: "M15" },
         { label: "Usage", value: "Constructions" },
@@ -1162,13 +1210,14 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
     },
     {
       name: "M20 Ready Mix Concrete",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-250x250.jpeg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
       price: "Approx. Rs 5,500 / Cubic Meter",
       details: [
         { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
         { label: "Concrete Grade", value: "M20" },
         { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M20" },
         { label: "Usage", value: "Constructions" },
         { label: "Color", value: "Grey" },
         { label: "Product Type", value: "Ready Mix Concrete" },
@@ -1177,61 +1226,22 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
       description:
         "M20 ready-mix concrete delivers 20 MPa strength for structural elements, supplied in loose form for efficient pumping and placement.",
       gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-1000x1000.jpeg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438879303/TT/DH/VN/213683241/ready-mix-concrete-250x250.jpeg"
-      ]
-    },
-    {
-      name: "M30 Ready Mix Concrete",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-1000x1000.jpg",
-      price: "Approx. Rs 6,100 / Cubic Meter",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
-        { label: "Concrete Grade", value: "M30" },
-        { label: "Packaging Type", value: "Loose" },
-        { label: "Product Type", value: "Ready Mix Concrete" },
-        { label: "Usage", value: "Constructions" },
-        { label: "Color", value: "Grey" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "M30 grade mixes use a 1:0.75:1.5 cement:sand:aggregate ratio to achieve 30 MPa compressive strength for demanding structural members.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438893564/LU/YJ/QM/213683241/m30-ready-mix-concrete-250x250.jpg"
-      ]
-    },
-    {
-      name: "M10 Ready Mix Concrete",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-1000x1000.jpg",
-      price: "Approx. Rs 4,900 / Cubic Meter",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
-        { label: "Concrete Grade", value: "M10" },
-        { label: "Packaging Type", value: "Loose" },
-        { label: "Usage", value: "Constructions" },
-        { label: "Color", value: "Grey" },
-        { label: "Product Type", value: "Ready Mix Concrete" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Lean M10 concrete mix provided in bulk for blinding and leveling layers ahead of structural pours.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892620/SY/AK/KJ/213683241/m10-ready-mix-concrete-250x250.jpg"
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
       ]
     },
     {
       name: "M25 Ready Mix Concrete",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
       price: "Approx. Rs 5,800 / Cubic Meter",
       details: [
         { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
         { label: "Concrete Grade", value: "M25" },
         { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M25" },
         { label: "Product Type", value: "Ready Mix Concrete" },
         { label: "Usage", value: "Constructions" },
         { label: "Color", value: "Grey" },
@@ -1240,8 +1250,178 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
       description:
         "M25 ready-mix concrete offers 25 MPa compressive strength with a 1:1:2 mix, suited for columns, beams, and slabs requiring higher performance.",
       gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438893212/TQ/EX/VN/213683241/m25-ready-mix-concrete-250x250.jpg"
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M30 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 6,100 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M30" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M30" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M30 grade mixes use a 1:0.75:1.5 cement:sand:aggregate ratio to achieve 30 MPa compressive strength for demanding structural members.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M35 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 6,500 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M35" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M35" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M35 high-performance concrete delivers 35 MPa compressive strength for demanding structural applications requiring superior durability.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M40 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 7,000 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M40" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M40" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M40 high-strength concrete provides 40 MPa compressive strength for critical structural elements in high-rise buildings and infrastructure.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M45 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 7,500 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M45" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M45" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M45 ultra-high-strength concrete delivers 45 MPa compressive strength for specialized applications requiring exceptional performance.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M50 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 8,000 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M50" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M50" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M50 premium high-strength concrete offers 50 MPa compressive strength for heavy-duty construction and specialized infrastructure projects.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M55 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 8,500 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M55" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M55" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M55 super high-strength concrete provides 55 MPa compressive strength for specialized infrastructure requiring exceptional durability and performance.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
+      ]
+    },
+    {
+      name: "M60 Ready Mix Concrete",
+      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg",
+      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+      price: "Approx. Rs 9,000 / Cubic Meter",
+      details: [
+        { label: "Minimum Order Quantity", value: "50 Cubic Meter" },
+        { label: "Concrete Grade", value: "M60" },
+        { label: "Packaging Type", value: "Loose" },
+        { label: "Grade", value: "M60" },
+        { label: "Product Type", value: "Ready Mix Concrete" },
+        { label: "Usage", value: "Constructions" },
+        { label: "Color", value: "Grey" },
+        { label: "Material", value: "Concrete" }
+      ],
+      description:
+        "M60 ultra-premium high-strength concrete delivers 60 MPa compressive strength for critical infrastructure projects requiring maximum performance and durability.",
+      gallery: [
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-1000x1000.jpg",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392817/NK/BC/HK/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2025/7/527392819/BV/TC/ON/213683241/m15-ready-mixed-concrete-1000x1000.png",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/438892871/SB/LP/AJ/213683241/m15-ready-mixed-concrete-250x250.jpg"
       ]
     }
   ],
@@ -1488,7 +1668,6 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
       name: "1200mm RCC Hume Pipes",
       image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438366114/ON/YH/ER/213683241/1200mm-rcc-hume-pipes-250x250.jpg",
       hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438366114/ON/YH/ER/213683241/1200mm-rcc-hume-pipes-1000x1000.jpg",
-      price: "Approx. Rs 15,000 / Piece",
       details: [
         { label: "Minimum Order Quantity", value: "10 Piece" },
         { label: "Size/Diameter", value: "1200 mm" },
@@ -1558,732 +1737,8 @@ export const scrapedProducts: Record<string, ScrapedProduct[]> = {
       ]
     }
   ],
-  "paver-blocks": [
-    {
-      name: "Red Zig Zag Cement Paver Blocks",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438735821/UQ/XM/IZ/213683241/red-zig-zag-paver-blocks-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438735821/UQ/XM/IZ/213683241/red-zig-zag-paver-blocks-1000x1000.jpg",
-      price: "Approx. Rs 25 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "10 Piece" },
-        { label: "Thickness", value: "60 mm" },
-        { label: "Color", value: "Red" },
-        { label: "Dimensions", value: "250 mm x 125 mm (L × W)" },
-        { label: "Surface Finishing", value: "Matte" },
-        { label: "Material", value: "Cement" },
-        { label: "Suitability", value: "Floor" }
-      ],
-      description:
-        "Red zig-zag interlocking pavers, sized to cover roughly one square foot per piece, provide durable cement flooring in a bold tone.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438735821/UQ/XM/IZ/213683241/red-zig-zag-paver-blocks-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527581985/MR/JB/BQ/213683241/red-zig-zag-cement-paver-blocks-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527581986/WF/EW/OQ/213683241/red-zig-zag-cement-paver-blocks-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438735821/UQ/XM/IZ/213683241/red-zig-zag-paver-blocks-250x250.jpg"
-      ]
-    },
-    {
-      name: "Red I Shape Concrete Paver Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438738016/SW/CZ/HP/213683241/red-i-shape-concrete-paver-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438738016/SW/CZ/HP/213683241/red-i-shape-concrete-paver-block-1000x1000.jpg",
-      price: "Approx. Rs 30 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Thickness", value: "60 mm" },
-        { label: "Color", value: "Red" },
-        { label: "Shape", value: "I Shaped" },
-        { label: "Surface Finishing", value: "Matte" },
-        { label: "Material", value: "Concrete" },
-        { label: "Dimensions", value: "225 mm x 175 mm (L × W)" },
-        { label: "Usage/Application", value: "Flooring" }
-      ],
-      description:
-        "Red I-shaped concrete pavers in a 60 mm thickness deliver interlocking performance for driveways and outdoor flooring.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438738016/SW/CZ/HP/213683241/red-i-shape-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438738020/KN/HW/SD/213683241/red-i-shape-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527580341/JN/KK/JJ/213683241/red-i-shape-concrete-paver-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438738016/SW/CZ/HP/213683241/red-i-shape-concrete-paver-block-250x250.jpg"
-      ]
-    },
-    {
-      name: "I Shape Grey Concrete Paver Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438732206/XD/CF/YV/213683241/i-shape-grey-concrete-paver-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438732206/XD/CF/YV/213683241/i-shape-grey-concrete-paver-block-1000x1000.jpg",
-      price: "Approx. Rs 35 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Thickness", value: "60 mm" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "I Shaped" },
-        { label: "Surface Finishing", value: "Matte" },
-        { label: "Dimensions", value: "225 mm x 175 mm (L × W)" },
-        { label: "Usage/Application", value: "Flooring" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Grey I-shaped concrete paver blocks crafted for heavy-duty interlocking surfaces with a neutral aesthetic.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438732206/XD/CF/YV/213683241/i-shape-grey-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438732210/VC/YU/BL/213683241/i-shape-grey-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438732211/AF/QM/HQ/213683241/i-shape-grey-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438732206/XD/CF/YV/213683241/i-shape-grey-concrete-paver-block-250x250.jpg"
-      ]
-    },
-    {
-      name: "Grey Zig Zag Concrete Paver Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438731143/JP/KU/XW/213683241/grey-zig-zag-concrete-paver-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438731143/JP/KU/XW/213683241/grey-zig-zag-concrete-paver-block-1000x1000.jpg",
-      price: "Approx. Rs 30 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Thickness", value: "60 mm" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Zig-Zag" },
-        { label: "Surface Finishing", value: "Matte" },
-        { label: "Usage/Application", value: "Floor" },
-        { label: "Dimensions", value: "250 mm x 125 mm (L × W)" },
-        { label: "Material", value: "Cement" }
-      ],
-      description:
-        "Grey zig-zag pavers add a precise interlocking pattern and smooth matte finish for walkways and landscape hardscapes.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438731143/JP/KU/XW/213683241/grey-zig-zag-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438731145/YT/XS/KW/213683241/grey-zig-zag-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438731146/WU/MB/ML/213683241/grey-zig-zag-concrete-paver-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438731143/JP/KU/XW/213683241/grey-zig-zag-concrete-paver-block-250x250.jpg"
-      ]
-    }
-  ],
-  "aac-blocks": [
-    {
-      name: "6 Inch Fusion Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438843551/QN/MW/YV/213683241/6-inch-fusion-concrete-aac-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438843551/QN/MW/YV/213683241/6-inch-fusion-concrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 84 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Piece" },
-        { label: "Size", value: "600 mm x 200 mm x 150 mm" },
-        { label: "Usage/Application", value: "Side Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Heat Resistant, Water Resistant, Fire Resistant" },
-        { label: "Brand", value: "Fusion" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Fusion AAC Blocks are lightweight, precast concrete units widely used for internal and external construction by an ISO 9001-2015 certified company registered with GRIHA.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438843551/QN/MW/YV/213683241/6-inch-fusion-concrete-aac-block-1000x1000.jpg",
-        "https://img.youtube.com/vi/FTp_Y9Je4tI/sddefault.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609172/OO/BA/MV/213683241/6-inch-fusion-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609179/MF/CZ/KB/213683241/6-inch-fusion-concrete-aac-block-1000x1000.png"
-      ],
-      video: "https://www.youtube.com/watch?v=FTp_Y9Je4tI"
-    },
-    {
-      name: "4 Inch Fusion Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438844926/HH/ST/VK/213683241/4-inch-fusion-concrete-aac-block-250x250.jpeg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438844926/HH/ST/VK/213683241/4-inch-fusion-concrete-aac-block-1000x1000.jpeg",
-      price: "Approx. Rs 47 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Piece" },
-        { label: "Size", value: "600 mm x 200 mm x 100 mm" },
-        { label: "Usage/Application", value: "Side Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Heat Resistant, Water Resistant, Fire Resistant" },
-        { label: "Brand", value: "Fusion" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Fusion AAC Blocks keep partitions lightweight while offering excellent fire, water and heat resistance for durable wall assemblies.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438844926/HH/ST/VK/213683241/4-inch-fusion-concrete-aac-block-1000x1000.jpeg",
-        "https://img.youtube.com/vi/FTp_Y9Je4tI/sddefault.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609060/DH/VD/JM/213683241/4-inch-fusion-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609063/YZ/ES/NY/213683241/4-inch-fusion-concrete-aac-block-1000x1000.png"
-      ],
-      video: "https://www.youtube.com/watch?v=FTp_Y9Je4tI"
-    },
-    {
-      name: "4 Inch NCL Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438877825/JD/MP/IP/213683241/4-inch-ncl-concrete-aac-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438877825/JD/MP/IP/213683241/4-inch-ncl-concrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 70 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 100 mm" },
-        { label: "Usage/Application", value: "Side Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Heat Resistant, Water Resistant, Fire Resistant" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "NCL AAC Blocks supply lightweight concrete wall panels ideal for high-performance partitions with reliable insulation.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438877825/JD/MP/IP/213683241/4-inch-ncl-concrete-aac-block-1000x1000.jpg",
-        "https://img.youtube.com/vi/kTRaXvWny_I/sddefault.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527607950/NM/PL/NP/213683241/4-inch-ncl-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527607951/MY/XK/XU/213683241/4-inch-ncl-concrete-aac-block-1000x1000.png"
-      ],
-      video: "https://www.youtube.com/watch?v=kTRaXvWny_I"
-    },
-    {
-      name: "6 Inch NCL Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438898543/NC/BE/ES/213683241/6-inch-ncl-concrete-aac-block-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438898543/NC/BE/ES/213683241/6-inch-ncl-concrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 79 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 150 mm" },
-        { label: "Usage/Application", value: "Side Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Fire Resistant, Heat Resistant, Water Resistant" },
-        { label: "Brand", value: "NCL" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Autoclaved NCL AAC Blocks combine light weight with dependable fire, heat and water resistance for durable side-wall construction.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438898543/NC/BE/ES/213683241/6-inch-ncl-concrete-aac-block-1000x1000.jpg",
-        "https://img.youtube.com/vi/kTRaXvWny_I/sddefault.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618380/TR/IK/ES/213683241/6-inch-ncl-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618387/XE/QR/JN/213683241/6-inch-ncl-concrete-aac-block-1000x1000.png"
-      ],
-      video: "https://www.youtube.com/watch?v=kTRaXvWny_I"
-    },
-    {
-      name: "4 Inch Kamcrete Light Weight AAC Blocks",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438904335/EI/UF/SY/213683241/4-inch-kamcrete-light-weight-aac-blocks-250x250.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438904335/EI/UF/SY/213683241/4-inch-kamcrete-light-weight-aac-blocks-1000x1000.jpg",
-      price: "Approx. Rs 79 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 100 mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Fire Resistant, Heat Resistant, Water Resistant" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Kamcrete AAC Blocks are autoclaved aerated concrete units that simplify lightweight partition construction while improving acoustic and thermal comfort.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438904335/EI/UF/SY/213683241/4-inch-kamcrete-light-weight-aac-blocks-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609410/RE/JO/XK/213683241/6-inch-ecocon-aac-concrete-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609404/TX/OA/TF/213683241/6-inch-ecocon-aac-concrete-block-1000x1000.png"
-      ]
-    },
-    {
-      name: "8 Inch Fusion Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438843018/HG/YH/PU/213683241/8-inch-fusion-concrete-aac-block-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438843018/HG/YH/PU/213683241/8-inch-fusion-concrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 110 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Piece" },
-        { label: "Size", value: "600 mm x 200 mm x 200 mm" },
-        { label: "Usage/Application", value: "Side Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Water Resistant, Heat Resistant, Fire Resistant" },
-        { label: "Brand", value: "Fusion" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Fusion AAC Blocks deliver outstanding thermal insulation and rapid buildability for thicker external wall sections.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438843018/HG/YH/PU/213683241/8-inch-fusion-concrete-aac-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609179/MF/CZ/KB/213683241/6-inch-fusion-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527609172/OO/BA/MV/213683241/6-inch-fusion-concrete-aac-block-1000x1000.png"
-      ]
-    },
-    {
-      name: "9 Inch NCL Concrete AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438900731/JX/AF/KZ/213683241/9-inch-ncl-concrete-aac-block-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438900731/JX/AF/KZ/213683241/9-inch-ncl-concrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 110 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 250 mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Heat Resistant, Fire Resistant, Water Resistant" },
-        { label: "Brand", value: "NCL" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "NCL AAC Blocks support tall partitions with a cellular structure that reduces heat and sound transfer while keeping loads low.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438900731/JX/AF/KZ/213683241/9-inch-ncl-concrete-aac-block-1000x1000.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618460/IR/PN/SJ/213683241/9-inch-ncl-concrete-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618463/XR/XP/YJ/213683241/9-inch-ncl-concrete-aac-block-1000x1000.png"
-      ]
-    },
-    {
-      name: "6 Inch Kamcrete Light Weight AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438904142/QK/QS/TU/213683241/6-inch-kamcrete-light-weight-aac-block-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438904142/QK/QS/TU/213683241/6-inch-kamcrete-light-weight-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 82 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 150 mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Water Resistant, Fire Resistant, Heat Resistant" },
-        { label: "Brand", value: "Kamcrete" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Kamcrete AAC Blocks in a 6 inch thickness deliver consistent cellular concrete performance with balanced insulation and strength for partitions.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438904142/QK/QS/TU/213683241/6-inch-kamcrete-light-weight-aac-block-1000x1000.jpg"
-      ]
-    },
-    {
-      name: "9 Inch Kamcrete Light Weight AAC Blocks",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438903066/TZ/XD/RF/213683241/9-inch-kamcrete-light-weight-aac-blocks-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438903066/TZ/XD/RF/213683241/9-inch-kamcrete-light-weight-aac-blocks-1000x1000.jpg",
-      price: "Approx. Rs 110 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "50 Piece" },
-        { label: "Size", value: "600mm x 200mm x 250 mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Water Resistant, Heat Resistant, Fire Resistant" },
-        { label: "Brand", value: "Kamcrete" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Kamcrete's 9 inch AAC blocks support premium walling systems with enhanced acoustic comfort and reduced structural loading.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438903066/TZ/XD/RF/213683241/9-inch-kamcrete-light-weight-aac-blocks-1000x1000.jpg"
-      ]
-    },
-    {
-      name: "8 Inch ECOCON AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438776241/BS/GO/RZ/213683241/8-inch-ecocon-aac-block-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438776241/BS/GO/RZ/213683241/8-inch-ecocon-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 85 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 200mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Water Resistant, Heat Resistant, Fire Resistant" },
-        { label: "Brand", value: "ECOCON" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "ECOCON 8 inch AAC blocks deliver durable cellular concrete with strong fire and moisture resistance for thicker wall profiles.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438776241/BS/GO/RZ/213683241/8-inch-ecocon-aac-block-1000x1000.jpg"
-      ]
-    },
-    {
-      name: "6 Inch Solid AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438767965/ED/DC/EY/213683241/6-inch-cubecrete-aac-block-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438767965/ED/DC/EY/213683241/6-inch-cubecrete-aac-block-1000x1000.jpg",
-      price: "Approx. Rs 52 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 150 mm" },
-        { label: "Usage/Application", value: "Partition Walls" },
-        { label: "Color", value: "Grey" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Design", value: "Solid" },
-        { label: "Resistance Durability", value: "Fire Resistant, Heat Resistant, Water Resistant" },
-        { label: "Brand", value: "Cubecrete" },
-        { label: "Material", value: "Concrete" }
-      ],
-      description:
-        "Cubecrete's solid AAC block provides structure, insulation and fire protection in one lightweight panel, improving workability on site.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438767965/ED/DC/EY/213683241/6-inch-cubecrete-aac-block-1000x1000.jpg"
-      ]
-    },
-    {
-      name: "9 Inch Renacon Light Weight AAC Block",
-      image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438779935/IC/AF/LZ/213683241/prod-20201224-16213085116102pg-1-1000x1000.jpg",
-      hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438779935/IC/AF/LZ/213683241/prod-20201224-16213085116102pg-1-1000x1000.jpg",
-      price: "Approx. Rs 130 / Piece",
-      details: [
-        { label: "Minimum Order Quantity", value: "100 Piece" },
-        { label: "Size", value: "600mm x 200mm x 230 mm" },
-        { label: "Brand", value: "Renacon" },
-        { label: "Features", value: "Light Weight" },
-        { label: "Shape", value: "Rectangular" },
-        { label: "Color", value: "Grey" },
-        { label: "Design", value: "Solid" }
-      ],
-      description:
-        "Renacon AAC blocks are lightweight, load-bearing and highly insulating, enabling faster, safer construction with reduced dead load.",
-      gallery: [
-        "https://5.imimg.com/data5/SELLER/Default/2024/7/438779935/IC/AF/LZ/213683241/prod-20201224-16213085116102pg-1-1000x1000.jpg",
-        "https://img.youtube.com/vi/9JLXdwy078c/sddefault.jpg",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618125/AM/EM/WL/213683241/9-inch-renacon-light-weight-aac-block-1000x1000.png",
-        "https://5.imimg.com/data5/SELLER/Default/2025/7/527618129/VF/AB/UQ/213683241/9-inch-renacon-light-weight-aac-block-1000x1000.png"
-      ],
-      video: "https://www.youtube.com/watch?v=9JLXdwy078c"
-    }
-  ]
+  "paver-blocks": [],
+  "aac-blocks": []
 };
 
-scrapedProducts["construction-cement"] = [
-  {
-    name: "50Kg Ramco Super Grade Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438851629/JS/HK/EP/213683241/50kg-ramco-super-grade-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438851629/JS/HK/EP/213683241/50kg-ramco-super-grade-cement-1000x1000.jpg",
-    price: "Approx. Rs 305 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438851629/JS/HK/EP/213683241/50kg-ramco-super-grade-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/hZMeaVp7meo/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390416/JN/YT/JZ/213683241/50kg-ramco-super-grade-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390417/EK/TM/FW/213683241/50kg-ramco-super-grade-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Brand", value: "Ramco" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Usage", value: "Construction" }
-    ],
-    description:
-      "Ramco Cements Super Grade is a PPC grade cement manufactured as per IS 1489 (Part 1):1991. Ramco Cements Super Grade is produced either by grinding together Portland cement clinker and pozzolana with addition of gypsum or calcium sulphate, or by intimately and uniformly blending Portland cement and fine pozzolana. World over Ramco Cements Super Grade is preferred due to its ability to produce a durable concrete where the life of a concrete structure is given more importance. Ramco Cements Super Grade produces less heat of hydration and offers greater resistance to the attack of aggressive waters than normal Portland cement. Moreover, it reduces the leaching of calcium hydroxide liberated during the setting and hydration of cement."
-  },
-  {
-    name: "50Kg UltraTech Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438854095/GB/PH/AA/213683241/50kg-ultratech-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438854095/GB/PH/AA/213683241/50kg-ultratech-cement-1000x1000.jpg",
-    price: "Approx. Rs 300 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438854095/GB/PH/AA/213683241/50kg-ultratech-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/LiQaMWGCS3E/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390165/HY/HB/QI/213683241/50kg-ultratech-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390166/NZ/LZ/PU/213683241/50kg-ultratech-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 43" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Brand", value: "UltraTech" },
-      { label: "Usage/Application", value: "Constructions" }
-    ],
-    description:
-      "UltraTech Super is a PPC grade cement. It is a finely blended cement manufactured using latest technology. It produces high strength concrete which is durable and highly resistant to wet cracking and thermal cracking."
-  },
-  {
-    name: "50Kg Ramco Supercrete Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438855127/ZO/IE/BE/213683241/50kg-ramco-supercrete-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438855127/ZO/IE/BE/213683241/50kg-ramco-supercrete-cement-1000x1000.jpg",
-    price: "Approx. Rs 330 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438855127/ZO/IE/BE/213683241/50kg-ramco-supercrete-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/0H7fjIBJwtk/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390278/KU/WA/VW/213683241/50kg-ramco-supercrete-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390289/SX/XI/RT/213683241/50kg-ramco-supercrete-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 43" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Brand", value: "Ramco" },
-      { label: "Model", value: "Supercrete" },
-      { label: "Color", value: "Grey" }
-    ],
-    description:
-      "High compressive strength in concrete: using Supercrete enables you to make a concrete with high compressive strength. Even though it's a blended cement it has the compressive strength of an OPC 53 grade cement."
-  },
-  {
-    name: "50Kg Dalmia DSP Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438856676/YP/RU/OO/213683241/50kg-dalmia-dsp-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438856676/YP/RU/OO/213683241/50kg-dalmia-dsp-cement-1000x1000.jpg",
-    price: "Approx. Rs 330 / Piece",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438856676/YP/RU/OO/213683241/50kg-dalmia-dsp-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/CcRdCQQ64as/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390503/GI/YY/SH/213683241/50kg-dalmia-dsp-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390508/JL/BM/BW/213683241/50kg-dalmia-dsp-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Piece" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Usage", value: "Construction" },
-      { label: "Color", value: "Grey" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Brand", value: "Dalmia DSP" }
-    ],
-    description:
-      "Dalmia DSP Cement utilizes Ground Granulated Blast Furnace Slag (GGBS), a by-product of steel manufacturing process, which otherwise would have to be disposed into the environment. The process is recognized by Leadership in Energy and Environmental Design (LEED) for improving the sustainability of a project."
-  },
-  {
-    name: "JSW Concreel HD Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438862998/VD/CE/KZ/213683241/jsw-concreel-hd-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438862998/VD/CE/KZ/213683241/jsw-concreel-hd-cement-1000x1000.jpg",
-    price: "Approx. Rs 320 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438862998/VD/CE/KZ/213683241/jsw-concreel-hd-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/3F_3CT7UElo/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527392087/IO/UV/DJ/213683241/jsw-concreel-hd-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527392088/VU/AK/KV/213683241/jsw-concreel-hd-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Cement Type", value: "PSC (Portland Slag Cement)" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Packaging Type", value: "PP Sack Bag" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Usage", value: "Construction" },
-      { label: "Model Name", value: "Concreel HD" },
-      { label: "Brand", value: "JSW Cement" },
-      { label: "Shelf Life", value: "12 Months" },
-      { label: "Colour", value: "Grey" }
-    ],
-    description:
-      "JSW Concreel HD is our next-generation green cement, developed to meet all concrete-based construction requirements. The product comes with improvised chemical resistance and superior cohesion."
-  },
-  {
-    name: "India Conkrete Super King Cement",
-    image: "https://5.imimg.com/data5/WHATSAPP/Default/2024/7/436279828/VP/JC/VD/213683241/new-product-250x250.jpeg",
-    hiRes: "https://5.imimg.com/data5/WHATSAPP/Default/2024/7/436279828/VP/JC/VD/213683241/new-product-1000x1000.jpeg",
-    price: "Approx. Rs 410 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/WHATSAPP/Default/2024/7/436279828/VP/JC/VD/213683241/new-product-1000x1000.jpeg",
-      "https://img.youtube.com/vi/QgfQocOXfFs/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391036/ZS/BE/KY/213683241/india-conkrete-super-king-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391041/JN/GN/LB/213683241/india-conkrete-super-king-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Brand", value: "India Cement" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Grade", value: "43 Grade" },
-      { label: "Usage/Application", value: "Construction" },
-      { label: "Color", value: "Grey" }
-    ],
-    description:
-      "Conkrete Super King (CSK) has been designed to deal with issues faced by the people such as cracks in structures, seepage and leakage, and ensure long-term stability and strength."
-  },
-  {
-    name: "Zuari PPC Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438862428/ZV/YY/UI/213683241/zuari-ppc-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438862428/ZV/YY/UI/213683241/zuari-ppc-cement-1000x1000.jpg",
-    price: "Approx. Rs 295 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438862428/ZV/YY/UI/213683241/zuari-ppc-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/8ssEf0xxOzk/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527392009/AS/HK/VK/213683241/zuari-ppc-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527392010/UN/YY/TZ/213683241/zuari-ppc-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Color", value: "Grey" },
-      { label: "Cement Type", value: "PPC (Pozzolana Portland Cement)" }
-    ],
-    description:
-      "Zuari Cement products are preferred by professionals throughout all disciplines of the construction industry. Whether sparked by an architect, an owner or a building engineer, any project's vision is only as realistic as access to materials capable of achieving precise details in their purest form. At Zuari, we are proud to provide materials that are uncompromising in creative breadth, technical quality and practical applicability."
-  },
-  {
-    name: "Ramco Super Steel Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438861539/IH/FX/QL/213683241/ramco-super-steel-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438861539/IH/FX/QL/213683241/ramco-super-steel-cement-1000x1000.jpg",
-    price: "Approx. Rs 450 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438861539/IH/FX/QL/213683241/ramco-super-steel-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/ukDWyIHbR04/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391738/NN/TL/CQ/213683241/ramco-super-steel-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Shelf Life", value: "1 Year" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Colour", value: "Grey" },
-      { label: "Usage", value: "Construction" },
-      { label: "Type", value: "PSC (Portland Slag Cement)" },
-      { label: "Model", value: "Super Steel" }
-    ],
-    description:
-      "Ramco Supersteel is a specially formulated blended cement manufactured as per IS 1489. This cement is the culmination of R&D efforts, our experience of supplying cement to critical projects and feedback from civil engineers."
-  },
-  {
-    name: "50Kg Chettinad Super Grade Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438856020/UY/HJ/NS/213683241/50kg-chettinad-super-grade-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438856020/UY/HJ/NS/213683241/50kg-chettinad-super-grade-cement-1000x1000.jpg",
-    price: "Approx. Rs 330 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438856020/UY/HJ/NS/213683241/50kg-chettinad-super-grade-cement-1000x1000.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390909/PP/FJ/YD/213683241/50kg-chettinad-super-grade-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527390911/VQ/KV/RY/213683241/50kg-chettinad-super-grade-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Brand", value: "Chettinad" },
-      { label: "Usage", value: "Construction" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Model Name", value: "Super Grade" }
-    ],
-    description:
-      "OPC 53 grade Chettinad Cement is specially blended with good quality control monitoring systems, engineered for use in all structural, building and particularly in marine and hydraulic construction. Chettinad Cement is the result of careful effort in the research and development of our cement engineers and scientists."
-  },
-  {
-    name: "50Kg Valimai PCC Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438857597/SS/KO/WR/213683241/50kg-valimai-pcc-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438857597/SS/KO/WR/213683241/50kg-valimai-pcc-cement-1000x1000.jpg",
-    price: "Approx. Rs 310 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438857597/SS/KO/WR/213683241/50kg-valimai-pcc-cement-1000x1000.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527389805/QJ/LU/GW/213683241/50kg-valimai-pcc-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527389905/ZV/SS/OM/213683241/50kg-valimai-pcc-cement-1000x1000.jpg"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Usage", value: "Constructions" },
-      { label: "Brand", value: "Valimai" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Color", value: "Grey" },
-      { label: "Shelf Life", value: "3 Months" }
-    ],
-    description:
-      "Valimai PPC is the ultra fineness providing cement with high early strength. It provides improved workability, durability and enhanced compressive strength. It has low heat of hydration with reduced shrinkage and swelling and increased resistance to chloride, sulphate and alkali attack."
-  },
-  {
-    name: "50Kg ACC Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438859842/JD/CI/IQ/213683241/50kg-acc-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438859842/JD/CI/IQ/213683241/50kg-acc-cement-1000x1000.jpg",
-    price: "Approx. Rs 300 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438859842/JD/CI/IQ/213683241/50kg-acc-cement-1000x1000.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391577/FV/FL/AS/213683241/50kg-acc-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391578/RC/ZG/VS/213683241/50kg-acc-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Type", value: "PPC (Pozzolana Portland Cement)" },
-      { label: "Usage", value: "Construction" },
-      { label: "Brand", value: "ACC" }
-    ],
-    description:
-      "It is also used in the finishing of all types of buildings, bridges, culverts, roads, water retaining structures, etc. ACC cement surpasses BIS specifications (IS 8112-1989 for 43 grade OPC) on compressive strength levels and is marketed in specially designed 50 kg bags."
-  },
-  {
-    name: "50Kg Sankar Super Power Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438858832/OV/CU/MT/213683241/50kg-sankar-super-power-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438858832/OV/CU/MT/213683241/50kg-sankar-super-power-cement-1000x1000.jpg",
-    price: "Approx. Rs 430 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438858832/OV/CU/MT/213683241/50kg-sankar-super-power-cement-1000x1000.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527389629/GS/IU/BU/213683241/50kg-sankar-super-power-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527389634/TS/UU/KK/213683241/50kg-sankar-super-power-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Usage", value: "Construction" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Model Name", value: "Super Power" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Color", value: "Grey" },
-      { label: "Brand", value: "Sankar" },
-      { label: "Type", value: "PSC (Portland Slag Cement)" }
-    ],
-    description:
-      "Sankar Super Power Cement, ₹ 290 / Bag, Brand: Sankar, Type: PPC (Pozzolana Portland Cement), Packaging Size: 50 kg, Packaging Type: PP sack bag."
-  },
-  {
-    name: "50Kg Dalmia Future Today Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438852972/TD/NW/JB/213683241/50kg-dalmia-future-today-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438852972/TD/NW/JB/213683241/50kg-dalmia-future-today-cement-1000x1000.jpg",
-    price: "Approx. Rs 330 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438852972/TD/NW/JB/213683241/50kg-dalmia-future-today-cement-1000x1000.jpg",
-      "https://img.youtube.com/vi/c7_Hd38v6w4/sddefault.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391905/TP/GV/GT/213683241/50kg-dalmia-future-today-cement-1000x1000.png",
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/527391906/MQ/JG/BG/213683241/50kg-dalmia-future-today-cement-1000x1000.png"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Usage", value: "Construction" },
-      { label: "Shelf Life", value: "3 Months" },
-      { label: "Model Name", value: "Future Today" },
-      { label: "Color", value: "Grey" },
-      { label: "Brand", value: "Dalmia" }
-    ],
-    description:
-      "High strength construction produced using superior ingredients to provide high strength construction, from the moment you build your home to the long term. Dalmia Future Today Cement offers best-in-class durability, resistance to chemical corrosion, denser and impervious concrete, and helps deliver greener construction."
-  },
-  {
-    name: "Penna OPC 53 Grade Cement",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/7/438860540/BT/PY/SY/213683241/penna-opc-53-grade-cement-250x250.jpg",
-    hiRes: "https://5.imimg.com/data5/SELLER/Default/2024/7/438860540/BT/PY/SY/213683241/penna-opc-53-grade-cement-1000x1000.jpg",
-    price: "Approx. Rs 360 / Bag",
-    gallery: [
-      "https://5.imimg.com/data5/SELLER/Default/2024/7/438860540/BT/PY/SY/213683241/penna-opc-53-grade-cement-250x250.jpg"
-    ],
-    details: [
-      { label: "Minimum Order Quantity", value: "10 Bag" },
-      { label: "Packaging Size", value: "50 Kg" },
-      { label: "Cement Grade", value: "Grade 53" },
-      { label: "Packaging Type", value: "Bag" },
-      { label: "Certified By", value: "ISI" },
-      { label: "Form", value: "Powder" },
-      { label: "Cement Type", value: "OPC (Ordinary Portland Cement)" },
-      { label: "Usage", value: "Constructions" }
-    ],
-    description:
-      "Created from superior quality clinker and gypsum, Penna OPC 53 Grade provides high strength to structures because of its optimum particle size distribution, superior crystallized structure and balanced phase composition."
-  }
-];
+scrapedProducts["construction-cement"] = [];

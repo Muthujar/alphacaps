@@ -5,6 +5,13 @@ const nextConfig = {
     if (dev) {
       config.cache = false;
     }
+    
+    // Support for 3D model formats
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      type: 'asset/resource',
+    });
+    
     return config;
   },
   images: {
