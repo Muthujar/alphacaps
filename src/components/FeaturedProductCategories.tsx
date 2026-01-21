@@ -85,7 +85,7 @@ export default function FeaturedProductCategories() {
   }, [featuredCategories, previewDecks]);
 
   return (
-    <section id="products" className="section-container py-16 lg:py-20 bg-white">
+    <section id="products" className="section-container py-16 lg:py-20 bg-white scroll-mt-24">
       <div className="mx-auto max-w-3xl text-center space-y-4">
         <span className="inline-flex items-center gap-2 rounded-full bg-construction-orange/10 px-4 py-2 text-sm font-semibold text-construction-orange">
           🔍 Featured catalog

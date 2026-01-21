@@ -21,7 +21,7 @@ export default function OurClients() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="our-clients" className="section-container bg-gray-50" ref={ref}>
+    <section id="our-clients" className="section-container bg-gray-50 scroll-mt-24" ref={ref}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

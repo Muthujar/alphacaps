@@ -167,9 +167,23 @@
   }
 }
 
-.animate-marquee {
-  animation: marquee-scroll 30s linear infinite;
-  will-change: transform;
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
+
+  .animate-marquee {
+    animation: marquee-scroll 30s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% auto;
+  }
 
 

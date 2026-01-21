@@ -36,7 +36,7 @@
 ### **Current Structure:**
 1. Hero (with dual business showcase)
 2. Business Verticals (clear overview)
-3. InfraCons Services (detailed services)
+3. Infracons Services (detailed services)
 4. About (company info + products)
 5. Why Choose Us (benefits + realistic stats)
 6. Enquiry Form (needs improvement)

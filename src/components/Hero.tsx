@@ -91,6 +91,7 @@ export default function Hero() {
                 {[
                   { 
                     name: 'Trade Platform', 
+                    id: 'products',
                     baseColor: 'orange',
                     gradient: 'from-amber-500 via-orange-500 to-orange-600',
                     borderColor: 'border-orange-400/50',
@@ -104,6 +105,7 @@ export default function Hero() {
                   },
                   { 
                     name: 'Infracons', 
+                    id: 'services',
                     baseColor: 'blue',
                     gradient: 'from-blue-600 via-indigo-600 to-blue-700',
                     borderColor: 'border-blue-400/50',
@@ -117,6 +119,7 @@ export default function Hero() {
                   },
                   { 
                     name: 'Insurance', 
+                    id: null,
                     baseColor: 'emerald',
                     gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
                     borderColor: 'border-emerald-400/50',
@@ -135,6 +138,14 @@ export default function Hero() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 + index * 0.1, duration: 0.5, ease: "easeOut" }}
                     whileHover={{ scale: 1.05, y: -3 }}
+                    onClick={() => {
+                      if (group.id) {
+                        const element = document.getElementById(group.id);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    }}
                     className={`bg-gradient-to-br ${group.gradient} ${group.borderColor} border-2 rounded-xl px-6 py-3.5 text-sm font-bold text-white ${group.shadowColor} shadow-xl transition-all duration-300 cursor-pointer flex items-center gap-2.5 relative overflow-hidden group`}
                   >
                     {/* Pattern Overlay */}
@@ -160,14 +171,23 @@ export default function Hero() {
                 className="space-y-8"
               >
                 <motion.h1
-                  className="text-4xl md:text-6xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight"
+                  className="text-4xl md:text-6xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight relative"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05, duration: 0.65, ease: "easeOut" }}
                 >
-                  <span className="block mb-2">YOUR RELIABLE PARTNER FOR</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">PREMIUM CONSTRUCTION</span>
-                  <span className="block mt-2">MATERIAL SUPPLY</span>
+                  <span className="block mb-2 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">YOUR RELIABLE PARTNER FOR</span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-white animate-gradient drop-shadow-[0_4px_20px_rgba(255,140,0,0.4)]">
+                    PREMIUM CONSTRUCTION
+                  </span>
+                  <span className="block mt-2 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">MATERIAL SUPPLY</span>
+                  {/* Decorative underline */}
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent w-3/4"
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: "75%", opacity: 1 }}
+                    transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+                  />
                 </motion.h1>
                 <motion.p
                   className="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto md:mx-0 leading-relaxed font-light"

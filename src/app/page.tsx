@@ -28,7 +28,7 @@ export default function Home() {
       
       <FeaturedProductCategories />
       
-      {/* InfraCons Services Section - Construction, Interior, RMC services */}
+      {/* Infracons Services Section - Construction, Interior, RMC services */}
       <InfraConsServices />
       
       {/* Service Capabilities Section - Our service capabilities */}

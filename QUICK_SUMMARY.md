@@ -53,7 +53,7 @@
 1. Hero (with background image, single CTA)
 2. Trust Bar (logos, certifications, key numbers)
 3. Business Verticals (your current section)
-4. Services Overview (InfraCons services)
+4. Services Overview (Infracons services)
 5. Process/How We Work (NEW)
 6. Why Choose Us (your current section)
 7. Testimonials (NEW - CRITICAL)

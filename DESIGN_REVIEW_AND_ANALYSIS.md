@@ -7,8 +7,8 @@
 
 ### Existing Sections (In Order):
 1. **Hero Section** - Dual verticals showcase
-2. **Business Verticals** - Trade Platform & InfraCons overview
-3. **InfraCons Services** - Detailed service breakdown
+2. **Business Verticals** - Trade Platform & Infracons overview
+3. **Infracons Services** - Detailed service breakdown
 4. **About Section** - Product showcase (8 products)
 5. **Why Choose Us** - 6 benefits + stats
 6. **Enquiry Form** - Contact form
@@ -44,7 +44,7 @@
 
 ### 3. **Form Limitations**
 - ❌ Only supports "Material Type" - no service inquiry option
-- ❌ Doesn't differentiate between Trade Platform and InfraCons inquiries
+- ❌ Doesn't differentiate between Trade Platform and Infracons inquiries
 - ❌ Missing project type field for InfraCons
 - ❌ No budget range field
 
@@ -204,7 +204,7 @@ Based on industry best practices for B2B construction/material supplier websites
    - More professional appearance
 
 4. **Add Portfolio/Projects Section**
-   - Critical for InfraCons credibility
+   - Critical for Infracons credibility
    - Show completed projects
    - Before/after images
 

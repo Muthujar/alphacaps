@@ -84,7 +84,7 @@ export default function InfraConsServices() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="section-container bg-gray-50" ref={ref}>
+    <section id="services" className="section-container bg-gray-50 scroll-mt-24" ref={ref}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -92,7 +92,7 @@ export default function InfraConsServices() {
         className="text-center mb-16"
       >
         <h2 className="section-title">
-          InfraCons <span className="text-construction-orange">Services</span>
+          Infracons <span className="text-construction-orange">Services</span>
         </h2>
         <p className="section-subtitle max-w-3xl mx-auto">
           Comprehensive construction and interior services backed by our expertise in building materials. 

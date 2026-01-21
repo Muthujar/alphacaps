@@ -52,7 +52,7 @@
 ## ✅ What to Keep (Good Foundation)
 
 1. **Business Verticals Section** - Clear, well-structured
-2. **InfraCons Services** - Good detail level
+2. **Infracons Services** - Good detail level
 3. **Why Choose Us** - Benefits are appropriate
 4. **Overall Structure** - Logical flow
 
@@ -203,7 +203,7 @@
 2. Business Verticals
    - Keep as is (good)
 
-3. InfraCons Services
+3. Infracons Services
    - Keep as is (good)
 
 4. About
