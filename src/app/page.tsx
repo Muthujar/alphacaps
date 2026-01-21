@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import BusinessVerticalsCards from "@/components/BusinessVerticalsCards";
 import InfraConsServices from "@/components/InfraConsServices";
@@ -12,10 +11,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import FeaturedProductCategories from "@/components/FeaturedProductCategories";
 import Testimonials from "@/components/Testimonials";
 
-export const metadata: Metadata = {
-  title: "AlphaCap | alphacaps.in - Complete Construction Solutions",
-  description: "TrustSEAL verified (by IndiaMART) company offering premium building materials (Trade Platform) and expert construction & interior services (InfraCons) in Chennai. Quality materials, expert execution, moral business policies with crystal pure transparency.",
-};
+// Note: Metadata is inherited from layout.tsx (includes JSON-LD schema, OpenGraph, etc.)
 
 export default function Home() {
   return (
