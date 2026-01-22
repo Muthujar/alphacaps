@@ -15,7 +15,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   "@id": "https://www.alphacaps.in",
   "name": "AlphaCap Trade Platform Private Limited",
-  "alternateName": "AlphaCap",
+  "alternateName": ["AlphaCap", "AlphaCaps", "Alphacaps", "alphacaps"],
   "description": "TrustSEAL verified construction materials supplier and interior services provider in Chennai. Premium building materials, RMC services, and expert construction solutions.",
   "url": "https://www.alphacaps.in",
   "logo": "https://www.alphacaps.in/images/hero/alphacap_logo_header.png",

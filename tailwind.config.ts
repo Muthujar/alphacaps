@@ -22,13 +22,17 @@ const config: Config = {
           900: '#0c4a6e',
         },
         construction: {
-          primary: '#000000',      // Black
-          secondary: '#ffffff',    // White
-          accent: '#ea580c',       // Orange (#FF6B35 or #ea580c)
-          orange: '#FF6B35',       // Bright Orange
-          dark: '#000000',         // Black
-          light: '#f8f9fa',        // Light gray background
-          gray: '#6b7280',         // Medium gray
+          primary: '#0F172A',      // Slate 900
+          secondary: '#E2E8F0',    // Slate 200 (Concrete Base)
+          accent: '#2563EB',       // Blue 600
+          orange: '#F97316',       // Orange 500
+          dark: '#0F172A',         // Slate 900
+          light: '#CBD5E1',        // Slate 300 (Steel Grey)
+          gray: '#64748B',         // Slate 500
+          stone: '#94A3B8',        // Slate 400 (Stone)
+          steel: '#334155',        // Slate 700
+          surface: '#F1F5F9',      // Slate 100 (Still light but not white)
+          muted: '#E2E8F0',        // Slate 200
         }
       },
       fontFamily: {

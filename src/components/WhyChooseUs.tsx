@@ -66,47 +66,63 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-container bg-white" ref={ref}>
+    <section className="section-container relative overflow-hidden bg-slate-100/10 backdrop-blur-sm" ref={ref}>
+      {/* Precision grid detail */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-20 relative z-10"
       >
-        <h2 className="section-title">
+        <div className="inline-flex flex-col items-center gap-2 mb-4">
+          <span className="text-xs font-black uppercase tracking-[0.4em] text-construction-orange">Core Competencies</span>
+          <div className="w-16 h-1 bg-construction-orange/20 rounded-full"></div>
+        </div>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-construction-dark mb-6">
           Why Choose <span className="text-construction-orange">AlphaCap</span>
         </h2>
+        <p className="text-xl md:text-2xl text-construction-gray max-w-3xl mx-auto font-medium leading-relaxed italic">
+          Delivering excellence through reliability, transparency, and a strong network
+        </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
         {benefits.map((benefit, index) => (
           <motion.div
             key={benefit.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.4, delay: index * 0.08 }}
-            className="group relative overflow-hidden rounded-xl border-2 border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-construction-orange/50 hover:shadow-md"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="group relative flex flex-col bg-slate-50/80 backdrop-blur-md rounded-3xl p-8 border border-slate-200 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-500 overflow-hidden"
           >
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#1E2761]/5 via-transparent to-construction-orange/10" />
+            {/* Background technical pattern */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none group-hover:opacity-[0.05] transition-opacity" 
+                 style={{ backgroundImage: 'radial-gradient(#000 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}>
             </div>
-            <div className="relative flex items-start gap-3">
-              <div className="flex-shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-[#1E2761] to-construction-orange text-white shadow-sm group-hover:scale-110 transition-transform duration-300">
-                {benefit.icon}
-              </div>
-              <div className="flex-grow min-w-0">
-                <h3 className="text-base font-bold text-[#1E2761] mb-1 group-hover:text-construction-orange transition-colors">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
+
+            {/* Top Accent Strip */}
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-100 group-hover:bg-construction-orange transition-colors"></div>
+            
+            {/* Icon - Floating Circle */}
+            <div className="relative mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-lg group-hover:bg-construction-orange group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+              <div className="scale-125">{benefit.icon}</div>
+              {/* Glass shine */}
+              <div className="absolute top-0 left-0 w-full h-1/2 bg-white/10 rounded-t-2xl"></div>
             </div>
+
+            <h3 className="text-2xl font-black text-construction-dark mb-4 group-hover:text-construction-orange transition-colors">
+              {benefit.title}
+            </h3>
+            <p className="text-construction-gray text-lg font-medium leading-relaxed border-l-4 border-slate-50 pl-4 group-hover:border-construction-orange/30 transition-all">
+              {benefit.description}
+            </p>
           </motion.div>
         ))}
       </div>
-
     </section>
   );
 }

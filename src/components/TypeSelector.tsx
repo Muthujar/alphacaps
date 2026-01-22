@@ -26,7 +26,7 @@ export default function TypeSelector({
         id="type-selector"
         value={selectedType}
         onChange={(e) => onTypeChange(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition-colors hover:border-construction-orange/50 focus:border-construction-orange focus:outline-none focus:ring-2 focus:ring-construction-orange/20"
+        className="w-full rounded-lg border border-construction-stone bg-construction-beige px-4 py-2.5 text-sm font-medium text-construction-dark shadow-sm transition-colors hover:border-construction-orange/50 focus:border-construction-orange focus:outline-none focus:ring-2 focus:ring-construction-orange/20"
       >
         <option value="all">All Types ({types.length})</option>
         {types.map((type) => (

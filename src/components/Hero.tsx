@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Hero3DVehicle from "./Hero3DVehicle";
 
 
 const heroBackgrounds = [
@@ -72,9 +73,15 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* 3D Vehicle Animation - Integrated into hero context */}
+      {/* <div className="hidden lg:block">
+        <Hero3DVehicle />
+      </div> */}
+
       {/* Content */}
       <div className="relative z-20 w-full">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 text-white py-16 md:py-24">
+          
           {/* AlphaCap Groups - Full Width Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -93,9 +100,9 @@ export default function Hero() {
                     name: 'Trade Platform', 
                     id: 'products',
                     baseColor: 'orange',
-                    gradient: 'from-amber-500 via-orange-500 to-orange-600',
-                    borderColor: 'border-orange-400/50',
-                    shadowColor: 'shadow-orange-500/30',
+                    gradient: 'from-construction-orange via-orange-600 to-orange-700',
+                    borderColor: 'border-construction-orange/50',
+                    shadowColor: 'shadow-construction-orange/30',
                     pattern: 'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.2)_1px,transparent_0)]',
                     icon: (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,9 +114,9 @@ export default function Hero() {
                     name: 'Infracons', 
                     id: 'services',
                     baseColor: 'blue',
-                    gradient: 'from-blue-600 via-indigo-600 to-blue-700',
-                    borderColor: 'border-blue-400/50',
-                    shadowColor: 'shadow-blue-500/30',
+                    gradient: 'from-construction-accent via-blue-700 to-blue-800',
+                    borderColor: 'border-construction-accent/50',
+                    shadowColor: 'shadow-construction-accent/30',
                     pattern: 'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.2)_1px,transparent_0)]',
                     icon: (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,26 +178,24 @@ export default function Hero() {
                 className="space-y-8"
               >
                 <motion.h1
-                  className="text-4xl md:text-6xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight relative"
+                  className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tighter relative"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05, duration: 0.65, ease: "easeOut" }}
                 >
-                  <span className="block mb-2 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">YOUR RELIABLE PARTNER FOR</span>
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-white animate-gradient drop-shadow-[0_4px_20px_rgba(255,140,0,0.4)]">
-                    PREMIUM CONSTRUCTION
+                  <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
+                    <span className="h-px w-8 bg-construction-orange"></span>
+                    <span className="text-xs md:text-sm font-black uppercase tracking-[0.4em] text-construction-orange">Your Reliable Partner For</span>
+                  </div>
+                  <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                    PREMIUM <span className="text-construction-orange">CONSTRUCTION</span>
                   </span>
-                  <span className="block mt-2 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">MATERIAL SUPPLY</span>
-                  {/* Decorative underline */}
-                  <motion.div
-                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent w-3/4"
-                    initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: "75%", opacity: 1 }}
-                    transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
-                  />
+                  <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                    MATERIAL SUPPLY
+                  </span>
                 </motion.h1>
                 <motion.p
-                  className="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto md:mx-0 leading-relaxed font-light"
+                  className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto md:mx-0 leading-relaxed font-medium italic border-l-4 border-construction-orange/40 pl-6"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.65, ease: "easeOut" }}
@@ -205,7 +210,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.6, ease: "easeOut" }}
               >
-                <a href="#enquiry" className="btn-primary text-lg px-8 py-4 shadow-xl shadow-orange-500/20 hover:shadow-orange-500/30 hover:-translate-y-1 transition-all duration-300 rounded-xl">
+                <a href="#enquiry" className="btn-primary text-lg px-8 py-4 shadow-xl shadow-construction-accent/20 hover:shadow-construction-accent/30 hover:-translate-y-1 transition-all duration-300 rounded-xl bg-construction-accent hover:bg-blue-700">
                   Request a Quote
                 </a>
                 {/* <a href="#services" className="btn-secondary hover:-translate-y-0.5 transition-transform">

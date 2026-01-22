@@ -85,21 +85,27 @@ export default function FeaturedProductCategories() {
   }, [featuredCategories, previewDecks]);
 
   return (
-    <section id="products" className="section-container py-16 lg:py-20 bg-white scroll-mt-24">
-      <div className="mx-auto max-w-3xl text-center space-y-4">
-        <span className="inline-flex items-center gap-2 rounded-full bg-construction-orange/10 px-4 py-2 text-sm font-semibold text-construction-orange">
-          🔍 Featured catalog
-        </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Explore Our Materials Portfolio
+    <section id="products" className="section-container py-16 lg:py-20 relative overflow-hidden bg-slate-100/10 backdrop-blur-sm scroll-mt-24">
+      {/* Background Architectural Grid */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      </div>
+
+      <div className="mx-auto max-w-3xl text-center mb-16 relative z-10">
+        <div className="inline-flex flex-col items-center gap-2 mb-6">
+          <span className="text-xs font-black uppercase tracking-[0.4em] text-construction-orange">Materials Portfolio</span>
+          <div className="w-16 h-1 bg-construction-orange rounded-full"></div>
+        </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-construction-dark mb-6 tracking-tight">
+          Explore Our <span className="text-construction-orange">Materials Portfolio</span>
         </h2>
-        <p className="text-base md:text-lg text-gray-600">
+        <p className="text-lg text-construction-gray max-w-2xl mx-auto font-medium leading-relaxed italic">
           Browse a curated snapshot of AlphaCap&apos;s supply lineup. Discover spotlight categories and connect with us to
-          access the full catalog and project-specific availability.
+          access the full catalog.
         </p>
       </div>
 
-      <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 relative z-10">
         {featuredCategories.map((category) => {
           const deck = previewDecks[category.id];
           const activeIndex = activeImages[category.id] ?? 0;
@@ -108,68 +114,70 @@ export default function FeaturedProductCategories() {
           return (
             <article
               key={category.id}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
+              className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem] border border-slate-200 bg-slate-50/50 backdrop-blur-sm shadow-lg transition-all duration-500 hover:shadow-2xl hover:bg-white hover:border-construction-orange/30"
             >
-              <div className="relative h-60">
+              <div className="relative h-64 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${category.id}-${activeIndex}`}
-                    initial={{ opacity: 0.2, scale: 1.02 }}
+                    initial={{ opacity: 0.2, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0"
                   >
                     <Image
                       src={activeImage}
                       alt={`${category.name} preview`}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
                       sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 33vw"
                       unoptimized={isExternalImage(activeImage)}
                     />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white space-y-2">
-                  {/* <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-wide text-white/80">
-                    {category.icon} {category.products.length} products
-                  </span> */}
-                  <h3 className="text-2xl font-semibold leading-snug">{category.name}</h3>
-                  <p className="text-sm text-white/80 line-clamp-2">{category.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-8 text-white">
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-2 uppercase">{category.name}</h3>
+                  <p className="text-sm text-slate-300 font-medium line-clamp-2 italic">&ldquo;{category.description}&rdquo;</p>
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col gap-5 p-6">
-                <p className="text-sm text-gray-600">
+              <div className="flex flex-1 flex-col gap-6 p-8 relative">
+                {/* Internal decorative line */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-100/30 rounded-bl-full -mr-12 -mt-12 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                
+                <p className="text-construction-gray text-base leading-relaxed font-medium border-l-4 border-slate-100 pl-4 group-hover:border-construction-orange transition-all">
                   Discover curated media, specifications, and procurement-ready details for{" "}
                   {category.name.toLowerCase()}.
                 </p>
 
                 <Link
                   href={`/products/categories/${category.id}`}
-                  className="mt-auto inline-flex w-full items-center justify-center rounded-full bg-[#1E2761] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#273276] hover:shadow-xl"
+                  className="mt-auto inline-flex w-full items-center justify-center rounded-2xl bg-construction-dark px-6 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl transition-all duration-500 hover:bg-construction-orange hover:-translate-y-1"
                 >
-                  Explore category
+                  Explore Category
                 </Link>
               </div>
             </article>
           );
         })}
 
-        <article className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-construction-orange/40 bg-construction-orange/5 p-8 text-center shadow-sm">
-          <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl text-construction-orange shadow-md">
+        <article className="flex flex-col items-center justify-center rounded-[2.5rem] border border-dashed border-construction-orange/40 bg-slate-50/50 backdrop-blur-sm p-10 text-center shadow-lg transition-all duration-500 hover:shadow-2xl hover:bg-white group/all">
+          <div className="relative mb-8 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-construction-dark text-4xl text-construction-orange shadow-xl group-hover/all:bg-construction-orange group-hover/all:text-white group-hover/all:scale-110 transition-all duration-500">
             📦
-          </span>
-          <h3 className="mt-6 text-2xl font-semibold text-gray-900">Explore full catalog</h3>
-          <p className="mt-3 text-sm text-gray-700">
-            Tap below to browse every AlphaCap product category in detail.
+            {/* Glass shine */}
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-white/10 rounded-t-3xl"></div>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-black text-construction-dark mb-4 tracking-tight uppercase">Full Catalog</h3>
+          <p className="text-base text-construction-gray font-medium leading-relaxed italic mb-8">
+            Tap below to browse every AlphaCap product category in detail with full specifications.
           </p>
           <Link
             href="/products"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1E2761] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#273276] hover:shadow-xl"
+            className="inline-flex w-full items-center justify-center rounded-2xl bg-construction-dark px-6 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl transition-all duration-500 hover:bg-construction-orange hover:-translate-y-1"
           >
-            View all categories
+            View All Categories
           </Link>
         </article>
       </div>

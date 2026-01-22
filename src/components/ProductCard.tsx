@@ -68,30 +68,40 @@ export default function ProductCard({ product, fallbackImage, initialImageIndex 
   return (
     <article
       key={product.slug}
-      className="rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+      className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border border-slate-200 bg-slate-50/50 backdrop-blur-sm shadow-lg transition-all duration-500 hover:shadow-2xl hover:bg-white hover:border-construction-orange/30"
     >
-      <div className="grid gap-6 p-6 lg:grid-cols-[2fr,3fr] lg:items-center">
-        <div className="space-y-4">
-          <div className="relative h-56 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50">
+      {/* Background technical pattern */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none group-hover:opacity-[0.04] transition-opacity" 
+           style={{ backgroundImage: 'linear-gradient(45deg, #000 1px, transparent 1px)', backgroundSize: '15px 15px' }}>
+      </div>
+
+      <div className="grid gap-8 p-8 lg:grid-cols-[2fr,3fr] lg:items-start relative z-10">
+        <div className="space-y-6">
+          <div className="relative h-64 md:h-72 overflow-hidden rounded-3xl border-2 border-slate-100 bg-white shadow-inner group/image">
             {activeImage ? (
               <Image
                 key={activeImage}
                 src={activeImage}
                 alt={`${product.name} image`}
                 fill
-                className={`${product.name.toLowerCase().includes("paver block") ? "object-contain" : "object-cover"} transition-opacity duration-200`}
+                className={`${product.name.toLowerCase().includes("paver block") ? "object-contain" : "object-cover"} transition-transform duration-1000 group-hover/image:scale-110`}
                 unoptimized={isExternalImage(activeImage)}
-                sizes="(max-width: 1024px) 100vw, 300px"
+                sizes="(max-width: 1024px) 100vw, 400px"
               />
             ) : (
-              <div className="flex h-full items-center justify-center text-sm text-gray-500">
-                Image coming soon
+              <div className="flex h-full items-center justify-center text-xs font-black uppercase tracking-widest text-slate-300">
+                Data Sheet Pending
               </div>
             )}
+            <div className="absolute top-4 left-4">
+              <span className="bg-construction-dark/80 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest border border-white/10">
+                Technical View
+              </span>
+            </div>
           </div>
 
           {previewImages.length > 1 && (
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {previewImages.map((imageUrl) => {
                 const index = galleryImages.indexOf(imageUrl);
                 const isActive = index === activeImageIndex;
@@ -102,10 +112,10 @@ export default function ProductCard({ product, fallbackImage, initialImageIndex 
                     type="button"
                     key={`${product.slug}-preview-${index}`}
                     onClick={() => setActiveImageIndex(index)}
-                    className={`relative h-14 w-14 overflow-hidden rounded-xl border transition ring-offset-2 ${
+                    className={`relative h-16 w-16 overflow-hidden rounded-xl border-2 transition-all duration-300 ${
                       isActive
-                        ? 'border-construction-orange ring-2 ring-construction-orange/40'
-                        : 'border-gray-200 hover:border-construction-orange/60'
+                        ? 'border-construction-orange shadow-lg shadow-construction-orange/20 scale-105'
+                        : 'border-slate-100 grayscale hover:grayscale-0 hover:border-construction-orange/40'
                     }`}
                     aria-label={`View ${product.name} image ${index + 1}`}
                   >
@@ -113,9 +123,9 @@ export default function ProductCard({ product, fallbackImage, initialImageIndex 
                       src={imageUrl}
                       alt={`${product.name} thumbnail ${index + 1}`}
                       fill
-                      className={isPaverBlock ? "object-contain bg-gray-50" : "object-cover"}
+                      className={isPaverBlock ? "object-contain bg-slate-50" : "object-cover"}
                       unoptimized={isExternalImage(imageUrl)}
-                      sizes="56px"
+                      sizes="64px"
                     />
                   </button>
                 );
@@ -124,111 +134,65 @@ export default function ProductCard({ product, fallbackImage, initialImageIndex 
           )}
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
-            <div className="mt-1">
-              <PriceDisplay price={product.price} />
+            <div className="flex items-center gap-3 mb-2">
+              <span className="h-px w-6 bg-construction-orange"></span>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-construction-orange">Product Spec</span>
             </div>
-            {/* Show brand, size if available (grades will be shown in details) */}
-            {(product.brand || product.size) && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {product.brand && (
-                  <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800">
-                    {product.brand}
-                  </span>
-                )}
-                {product.size && (
-                  <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-                    {product.size}
-                  </span>
-                )}
-              </div>
-            )}
-            {/* Action Buttons - Common placement for all product cards */}
-            <div className="mt-4">
-              <ProductActionButtons variant="small" />
+            <h3 className="text-2xl md:text-3xl font-black text-construction-dark uppercase tracking-tight mb-2">{product.name}</h3>
+            <div className="flex items-center gap-4">
+              <PriceDisplay price={product.price} className="text-lg font-black text-construction-orange" />
+              {product.brand && (
+                <span className="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-slate-100 text-slate-500 border border-slate-200">
+                  {product.brand}
+                </span>
+              )}
             </div>
           </div>
 
           {product.description && (
-            <p className="text-sm leading-relaxed text-gray-600">{product.description}</p>
+            <p className="text-base leading-relaxed text-construction-gray font-medium italic border-l-4 border-slate-100 pl-4 group-hover:border-construction-orange transition-all">
+              {product.description}
+            </p>
           )}
 
-          {product.specifications && (
-            <p className="text-xs uppercase tracking-wide text-gray-500">{product.specifications}</p>
-          )}
+          {/* Action Buttons */}
+          <div className="pt-2">
+            <ProductActionButtons variant="large" />
+          </div>
 
           {(product.grade || (product.details && product.details.length > 0)) && (
-            <dl className="grid gap-3 sm:grid-cols-2">
-              {/* Show grades as a detail item with bullets if available */}
+            <div className="grid gap-4 sm:grid-cols-2 pt-4">
               {product.grade && (
-                <div className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    Available Grades
+                <div className="rounded-2xl border border-slate-100 bg-slate-50/50 p-4 relative group/spec">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover/spec:bg-construction-orange transition-colors"></div>
+                  <dt className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                    Grades
                   </dt>
-                  <dd className="mt-1 text-sm text-gray-800">
-                    <ul className="list-disc list-inside space-y-1">
-                      {product.grade.split(",").map((grade, index) => {
-                        // Extract short form (e.g., "PPC" from "PPC (PORTLAND POZZOLONA CEMENT)")
-                        const trimmedGrade = grade.trim();
-                        const shortForm = trimmedGrade.split("(")[0].trim();
-                        return <li key={index}>{shortForm}</li>;
-                      })}
+                  <dd className="text-sm font-bold text-construction-dark">
+                    <ul className="flex flex-wrap gap-2">
+                      {product.grade.split(",").map((grade, index) => (
+                        <li key={index} className="bg-white px-2 py-1 rounded-md border border-slate-100 shadow-sm">{grade.split("(")[0].trim()}</li>
+                      ))}
                     </ul>
                   </dd>
                 </div>
               )}
-              {/* Show other details */}
               {product.details
                 ?.filter((detail) => detail.label !== "Available Brands" && detail.label !== "Available Grades" && detail.label !== "Cement Grade")
                 .map((detail) => (
                   <div
                     key={`${product.slug}-${makeProductSlug(detail.label)}`}
-                    className="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3"
+                    className="rounded-2xl border border-slate-100 bg-slate-50/50 p-4 relative group/spec"
                   >
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover/spec:bg-construction-orange transition-colors"></div>
+                    <dt className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">
                       {detail.label}
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-800">{detail.value}</dd>
+                    <dd className="text-sm font-bold text-construction-dark">{detail.value}</dd>
                   </div>
                 ))}
-            </dl>
-          )}
-
-          {galleryImages.length > 1 && (
-            <div className="rounded-2xl border border-gray-100 bg-white px-4 py-4">
-              <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Media gallery
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {galleryImages.map((imageUrl, index) => {
-                  const isActive = index === activeImageIndex;
-                  const isPaverBlock = product.name.toLowerCase().includes("paver block");
-                  return (
-                    <button
-                      type="button"
-                      key={`${product.slug}-gallery-${index}`}
-                      onClick={() => setActiveImageIndex(index)}
-                      className={`relative h-14 w-14 overflow-hidden rounded-xl border transition ${
-                        isActive
-                          ? 'border-construction-orange ring-2 ring-construction-orange/40 ring-offset-1'
-                          : 'border-gray-200 hover:border-construction-orange/60'
-                      }`}
-                      aria-label={`View ${product.name} gallery image ${index + 1}`}
-                    >
-                      <Image
-                        src={imageUrl}
-                        alt={`${product.name} gallery image ${index + 1}`}
-                        fill
-                        className={isPaverBlock ? "object-contain bg-gray-50" : "object-cover"}
-                        unoptimized={isExternalImage(imageUrl)}
-                        sizes="56px"
-                      />
-                    </button>
-                  );
-                })}
-              </div>
             </div>
           )}
         </div>

@@ -8,22 +8,25 @@
   }
   
   body {
-    @apply text-gray-800 antialiased;
+    @apply text-construction-dark antialiased;
+    /* Deeper Concrete/Stone Gradient - Clearly non-white */
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+    background-attachment: fixed;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-construction-orange text-white font-semibold rounded-lg 
-    hover:bg-construction-orange/90 hover:shadow-lg transition-all duration-300 transform hover:scale-105 
-    focus:outline-none focus:ring-2 focus:ring-construction-orange focus:ring-offset-2;
+    @apply px-6 py-3 bg-construction-accent text-white font-semibold rounded-lg 
+    hover:bg-blue-700 hover:shadow-lg transition-all duration-300 transform hover:scale-105 
+    focus:outline-none focus:ring-2 focus:ring-construction-accent focus:ring-offset-2;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-construction-primary border-2 border-construction-primary 
-    font-semibold rounded-lg hover:bg-construction-primary hover:text-white hover:border-construction-primary
+    @apply px-6 py-3 bg-white text-construction-steel border-2 border-construction-accent/20 
+    font-semibold rounded-lg hover:border-construction-accent hover:text-construction-accent
     transition-all duration-300 focus:outline-none focus:ring-2 
-    focus:ring-construction-primary focus:ring-offset-2;
+    focus:ring-construction-accent focus:ring-offset-2;
   }
   
   .section-container {
@@ -35,18 +38,18 @@
   }
   
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-600 mb-12;
+    @apply text-lg md:text-xl text-construction-gray mb-12 font-light;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 
-    hover:shadow-xl hover:-translate-y-1;
+    @apply bg-construction-secondary rounded-lg shadow-sm border border-construction-stone p-6 transition-all duration-300 
+    hover:shadow-md hover:-translate-y-1;
   }
   
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg bg-white
     focus:outline-none focus:ring-2 focus:ring-construction-orange 
-    focus:border-transparent transition-all duration-200;
+    focus:border-construction-orange transition-all duration-200;
   }
   
   .label-text {

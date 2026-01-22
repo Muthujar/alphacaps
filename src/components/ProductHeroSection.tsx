@@ -62,32 +62,38 @@ export default function ProductHeroSection({
               {backLink && (
                 <Link
                   href={backLink.href}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-sm font-medium text-white transition-colors border border-white/10"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-construction-orange backdrop-blur-md text-xs font-black uppercase tracking-widest text-white transition-all border border-white/10 hover:border-white/20"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg>
                   {backLink.label}
                 </Link>
               )}
               
               {badge && (
-                <span className="inline-flex items-center gap-2 rounded-full bg-construction-orange/90 px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-orange-900/20">
-                  <span>{badge.icon}</span>
-                  {badge.label}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-8 bg-construction-orange"></span>
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.4em] text-construction-orange">
+                    {badge.label}
+                  </span>
+                </div>
               )}
             </div>
 
             {/* Title & Price */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-sm">
-                {title}
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] text-white tracking-tighter drop-shadow-2xl">
+                {title.split(' ').map((word, i) => (
+                  <span key={i} className={word.toLowerCase() === 'material' || word.toLowerCase() === 'marketplace' ? 'text-construction-orange' : ''}>
+                    {word}{' '}
+                  </span>
+                ))}
               </h1>
 
               {price && (
-                <div className="inline-block">
-                  <ProductPriceDisplay price={price} textColor="text-white" className="text-2xl md:text-3xl" />
+                <div className="inline-block bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10">
+                  <ProductPriceDisplay price={price} textColor="text-white" className="text-2xl md:text-3xl font-black" />
                 </div>
               )}
             </div>
@@ -98,9 +104,9 @@ export default function ProductHeroSection({
                 {badges.map((badge, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-white/10 text-white backdrop-blur-sm border border-white/10"
+                    className="inline-flex items-center px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-construction-dark/50 text-white backdrop-blur-md border border-white/10"
                   >
-                    <span className="opacity-70 mr-2">{badge.label}:</span>
+                    <span className="text-construction-orange mr-2 opacity-100">{badge.label}:</span>
                     {badge.value}
                   </span>
                 ))}
@@ -109,7 +115,7 @@ export default function ProductHeroSection({
 
             {/* Description */}
             {description && (
-              <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl font-light">
+              <p className="text-lg md:text-xl text-slate-200 leading-relaxed max-w-3xl font-medium italic border-l-4 border-construction-orange/40 pl-6">
                 {description}
               </p>
             )}

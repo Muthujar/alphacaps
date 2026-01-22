@@ -439,22 +439,24 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
   }, [products, isBricks]);
 
   return (
-    <div className="border-b border-gray-200 pb-6 mb-6">
-
+    <div className="border-b border-slate-200 pb-8 mb-10">
       {/* Filter Toggle Button (Mobile) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden w-full flex items-center justify-between px-4 py-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+        className="md:hidden w-full flex items-center justify-between px-6 py-4 bg-slate-100 rounded-2xl hover:bg-slate-200 transition-all border border-slate-200 shadow-sm"
       >
-        <span className="font-medium text-gray-900">
-          Filters {activeFilterCount > 0 && (
-            <span className="ml-2 px-2 py-0.5 bg-construction-orange text-white text-xs rounded-full">
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-construction-dark">
+            Filter Controls
+          </span>
+          {activeFilterCount > 0 && (
+            <span className="px-2.5 py-0.5 bg-construction-orange text-white text-[10px] font-black rounded-full shadow-lg shadow-orange-500/20">
               {activeFilterCount}
             </span>
           )}
-        </span>
+        </div>
         <svg
-          className={`w-5 h-5 text-gray-600 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-5 h-5 text-construction-dark transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -462,7 +464,7 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={3}
             d="M19 9l-7 7-7-7"
           />
         </svg>
@@ -470,23 +472,26 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
 
       {/* Filters Panel */}
       <div
-        className={`${isOpen ? "block" : "hidden"} md:block space-y-6 mt-6`}
+        className={`${isOpen ? "block animate-in fade-in slide-in-from-top-4" : "hidden"} md:block space-y-8 mt-8`}
       >
         {/* TMT Bars Specific Filters - Only Brand Type */}
         {isTMTBars && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Brand Type
-            </label>
-            <div className="flex flex-wrap gap-2">
+          <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                Supply Stream
+              </label>
+            </div>
+            <div className="flex flex-wrap gap-3">
               <button
                 onClick={() =>
                   handleFilterChange("brandType", filters.brandType === "Primary" ? undefined : "Primary")
                 }
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
                   filters.brandType === "Primary"
-                    ? "bg-construction-orange text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-construction-orange text-white shadow-xl shadow-orange-500/30 scale-105"
+                    : "bg-white text-construction-dark border-2 border-slate-100 hover:border-construction-orange/30 shadow-sm"
                 }`}
               >
                 Primary Brands
@@ -498,10 +503,10 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
                     filters.brandType === "Secondary" ? undefined : "Secondary"
                   )
                 }
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
                   filters.brandType === "Secondary"
-                    ? "bg-construction-orange text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-construction-orange text-white shadow-xl shadow-orange-500/30 scale-105"
+                    : "bg-white text-construction-dark border-2 border-slate-100 hover:border-construction-orange/30 shadow-sm"
                 }`}
               >
                 Secondary Brands
@@ -512,13 +517,16 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
 
         {/* Bulk Materials Specific Filters */}
         {isBulkMaterials && (
-          <>
+          <div className="grid gap-6 md:grid-cols-2">
             {/* Material Type Filter */}
             {availableMaterialTypes.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Material Type
-                </label>
+              <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                    Material Series
+                  </label>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {availableMaterialTypes.map((type) => (
                     <button
@@ -529,10 +537,10 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
                           filters.materialType === type ? undefined : type
                         )
                       }
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                      className={`px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
                         filters.materialType === type
-                          ? "bg-construction-orange text-white shadow-md"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          ? "bg-construction-orange text-white shadow-lg shadow-orange-500/20"
+                          : "bg-white text-construction-dark border border-slate-100 hover:border-construction-orange/30 shadow-sm"
                       }`}
                     >
                       {type}
@@ -544,16 +552,19 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
 
             {/* Size Filter for Aggregates Only */}
             {showSizeFilter && availableSizes.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Size
-                </label>
+              <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                    Technical Size
+                  </label>
+                </div>
                 <select
                   value={filters.size || ""}
                   onChange={(e) => handleFilterChange("size", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
+                  className="w-full px-5 py-3 bg-white border-2 border-slate-100 rounded-xl text-xs font-black uppercase tracking-widest text-construction-dark focus:border-construction-orange focus:outline-none transition-all shadow-sm"
                 >
-                  <option value="">All Sizes</option>
+                  <option value="">All Technical Sizes</option>
                   {availableSizes.map((size) => (
                     <option key={size} value={size}>
                       {size}
@@ -562,21 +573,24 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
                 </select>
               </div>
             )}
-          </>
+          </div>
         )}
 
         {/* Structural Steel Specific Filters */}
         {isStructuralSteel && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Product Type
-            </label>
+          <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm max-w-md">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                Geometry Spec
+              </label>
+            </div>
             <select
               value={filters.productType || ""}
               onChange={(e) => handleFilterChange("productType", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
+              className="w-full px-5 py-3 bg-white border-2 border-slate-100 rounded-xl text-xs font-black uppercase tracking-widest text-construction-dark focus:border-construction-orange focus:outline-none transition-all shadow-sm"
             >
-              <option value="">All Types</option>
+              <option value="">All Geometry Specs</option>
               {availableProductTypes.map((type) => (
                 <option key={type} value={type}>
                   {type}
@@ -588,16 +602,19 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
 
         {/* AAC Blocks Specific Filters - Type/Size Filter */}
         {isAACBlocks && availableAACTypes.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Type / Size
-            </label>
+          <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm max-w-md">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                Dimension Spec
+              </label>
+            </div>
             <select
               value={filters.size || ""}
               onChange={(e) => handleFilterChange("size", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
+              className="w-full px-5 py-3 bg-white border-2 border-slate-100 rounded-xl text-xs font-black uppercase tracking-widest text-construction-dark focus:border-construction-orange focus:outline-none transition-all shadow-sm"
             >
-              <option value="">All Types</option>
+              <option value="">All Dimensions</option>
               {availableAACTypes.map((type) => (
                 <option key={type} value={type}>
                   {type}
@@ -607,192 +624,21 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
           </div>
         )}
 
-        {/* Solid Blocks Specific Filters - Type/Size Filter */}
-        {isSolidBlocks && availableSolidBlockTypes.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Type / Size
-            </label>
-            <select
-              value={filters.size || ""}
-              onChange={(e) => handleFilterChange("size", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-            >
-              <option value="">All Types</option>
-              {availableSolidBlockTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Paver Blocks Specific Filters - Type Filter */}
-        {isPaverBlocks && availablePaverBlockTypes.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Type
-            </label>
-            <select
-              value={filters.searchQuery || ""}
-              onChange={(e) => handleFilterChange("searchQuery", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-            >
-              <option value="">All Types</option>
-              {availablePaverBlockTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Bricks Specific Filters - Type Filter */}
-        {isBricks && availableBrickTypes.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Brick Type
-            </label>
-            <select
-              value={filters.brickType || ""}
-              onChange={(e) => handleFilterChange("brickType", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-            >
-              <option value="">All Types</option>
-              {availableBrickTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Hume Pipes Specific Filters - Size */}
-        {isHumePipes && availableSizes.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Size
-            </label>
-            <select
-              value={filters.size || ""}
-              onChange={(e) => handleFilterChange("size", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-            >
-              <option value="">All Sizes</option>
-              {availableSizes.map((size) => (
-                <option key={size} value={size}>
-                  {size}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Shuttering Plywood Filters - Brand & Size */}
-        {isShutteringPlywood && (
-          <>
-            {availableBrands.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Brand
-                </label>
-                <select
-                  value={filters.brand || ""}
-                  onChange={(e) => handleFilterChange("brand", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-                >
-                  <option value="">All Brands</option>
-                  {availableBrands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            {availableSizes.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Size
-                </label>
-                <select
-                  value={filters.size || ""}
-                  onChange={(e) => handleFilterChange("size", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-                >
-                  <option value="">All Sizes</option>
-                  {availableSizes.map((size) => (
-                    <option key={size} value={size}>
-                      {size}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Ready Mix Plaster Filters - Brand & Packaging Size */}
-        {isReadyMixPlaster && (
-          <>
-            {availableBrands.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Brand
-                </label>
-                <select
-                  value={filters.brand || ""}
-                  onChange={(e) => handleFilterChange("brand", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-                >
-                  <option value="">All Brands</option>
-                  {availableBrands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            {availableSizes.length > 0 && (
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Packaging Size
-                </label>
-                <select
-                  value={filters.size || ""}
-                  onChange={(e) => handleFilterChange("size", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
-                >
-                  <option value="">All Sizes</option>
-                  {availableSizes.map((size) => (
-                    <option key={size} value={size}>
-                      {size}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </>
-        )}
-
         {/* Ready Mix Concrete Specific Filters - Grade Filter */}
         {isReadyMixConcrete && availableGrades.length > 0 && (
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-3">
-              Grade
-            </label>
+          <div className="bg-white/50 backdrop-blur-sm p-6 rounded-3xl border border-slate-100 shadow-sm max-w-md">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-construction-orange"></div>
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                Compressive Strength
+              </label>
+            </div>
             <select
               value={filters.grade || ""}
               onChange={(e) => handleFilterChange("grade", e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-construction-orange focus:border-transparent transition-all bg-white"
+              className="w-full px-5 py-3 bg-white border-2 border-slate-100 rounded-xl text-xs font-black uppercase tracking-widest text-construction-dark focus:border-construction-orange focus:outline-none transition-all shadow-sm"
             >
-              <option value="">All Grades</option>
+              <option value="">All Strength Grades</option>
               {availableGrades.map((grade) => (
                 <option key={grade} value={grade}>
                   {grade}
@@ -801,7 +647,6 @@ export default function ProductFilters({ products, categoryId, onFilterChange, i
             </select>
           </div>
         )}
-
       </div>
     </div>
   );

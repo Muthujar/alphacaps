@@ -20,7 +20,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold text-white mb-4">
               AlphaCap
             </h3>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-slate-300 leading-relaxed font-light">
               Complete construction solutions provider in Chennai. Trade Platform for premium building materials 
             and Infracons for construction & interior services. TrustSEAL verified by IndiaMART with moral business policies 
               and crystal pure transparency.
@@ -38,22 +38,22 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/products" className="text-gray-300 hover:text-construction-orange transition-colors">
+                <a href="/products" className="text-slate-300 hover:text-construction-orange transition-colors">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-construction-orange transition-colors">
+                <a href="#services" className="text-slate-300 hover:text-construction-orange transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#enquiry" className="text-gray-300 hover:text-construction-orange transition-colors">
+                <a href="#enquiry" className="text-slate-300 hover:text-construction-orange transition-colors">
                   Get a Quote
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-construction-orange transition-colors">
+                <a href="#about" className="text-slate-300 hover:text-construction-orange transition-colors">
                   About Us
                 </a>
               </li>
@@ -69,17 +69,17 @@ export default function Footer() {
             className="md:col-span-2 lg:col-span-3"
           >
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-slate-300">
               {/* Addresses - Side by Side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-construction-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <div>
                     <div className="font-medium mb-1">Head office:</div>
-                    <span className="text-sm">
+                    <span className="text-sm font-light">
                       First Floor, Door No. A H 266, 7th Main Road,<br />
                       Annanagar, Opposite Balaji Apartments,<br />
                       Chennai-600040, Tamil Nadu, India
@@ -87,13 +87,13 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-construction-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <div>
                     <div className="font-medium mb-1">Office address:</div>
-                    <span className="text-sm">
+                    <span className="text-sm font-light">
                       8/36, Balaji nagar,<br />
                       Vanagaram,<br />
                       Chennai-95.
@@ -105,7 +105,7 @@ export default function Footer() {
               {/* Contact and GST */}
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0 text-construction-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <div>
@@ -113,22 +113,22 @@ export default function Footer() {
                     <div className="flex flex-col gap-2">
                       <a
                         href="tel:+919629124777"
-                        className="text-construction-orange hover:text-construction-orange/80 font-medium"
+                        className="text-construction-accent hover:text-white font-medium"
                       >
                         9629124777
                       </a>
                       <a
                         href="tel:+918925516010"
-                        className="text-construction-orange hover:text-construction-orange/80 font-medium"
+                        className="text-construction-accent hover:text-white font-medium"
                       >
                         8925516010
                       </a>
                       <a
                         href="mailto:tradeplatform@alphacaps.in"
-                        className="text-construction-orange hover:text-construction-orange/80 font-medium flex items-center gap-2 mt-1"
+                        className="text-construction-accent hover:text-white font-medium flex items-center gap-2 mt-1"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z" />
                         </svg>
                         tradeplatform@alphacaps.in
                       </a>
@@ -136,10 +136,10 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0 mt-1 text-construction-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 text-sm font-light">
                     <div>
                       <span className="font-medium">GST (Trade Platform):</span>
                       <span className="ml-1">33ABACA3900B1ZM</span>
@@ -166,7 +166,7 @@ export default function Footer() {
             <div className="flex">
               <a
                 href="https://www.instagram.com/alphacaptradeplatform/"
-                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-construction-orange transition-colors"
+                className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-construction-orange transition-colors"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noreferrer"
@@ -177,7 +177,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-6">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-slate-400 font-light">
                 <strong>Business Hours:</strong><br />
                 Mon - Sat: 8:00 AM - 6:00 PM<br />
                 Sunday: Closed
@@ -187,11 +187,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400 font-light">
           <p className="text-sm">
             © {currentYear} AlphaCap. All rights reserved. | 
-            <a href="#" className="hover:text-construction-orange ml-2 transition-colors">Privacy Policy</a> | 
-            <a href="#" className="hover:text-construction-orange ml-2 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-construction-accent ml-2 transition-colors">Privacy Policy</a> | 
+            <a href="#" className="hover:text-construction-accent ml-2 transition-colors">Terms of Service</a>
           </p>
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   }
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    <main className="min-h-screen bg-slate-100/10">
       <ProductHeroSection
         title={category.name}
         description={category.description}
@@ -49,17 +49,24 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         imageAlt={category.name}
         backLink={{
           href: "/products",
-          label: "Back to all products",
+          label: "Back to Portfolio",
         }}
         badge={{
           icon: category.icon,
-          label: "Product Category",
+          label: "Technical Series",
         }}
         showButtons={true}
       />
 
-      <section className="section-container py-12 lg:py-16">
-        <CategoryPageClient category={category} />
+      <section className="section-container py-16 md:py-24 relative overflow-hidden">
+        {/* Background Architectural Grid */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+        </div>
+        
+        <div className="relative z-10">
+          <CategoryPageClient category={category} />
+        </div>
       </section>
 
       <Footer />

@@ -61,25 +61,31 @@ export default function CategoryProductList({ category, onBrandSelectReady, onGr
   }, [onGradeSelectReady]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {/* Header */}
-      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 pb-6 border-b border-slate-100">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="h-px w-6 bg-construction-orange"></span>
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-construction-orange">Catalog Index</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-construction-dark uppercase tracking-tight">
             Products in {category.name}
           </h2>
-          <p className="text-sm text-gray-600 mt-1">
-            Every listing includes specifications, pricing guidance, and high-resolution media
-            we curate from our AlphaCap Trade partners.
+          <p className="text-sm text-construction-gray mt-2 font-medium italic">
+            &ldquo;Curated specifications and high-resolution media for professional procurement.&rdquo;
           </p>
         </div>
 
         {/* Browse all categories link */}
         <Link
           href="/products"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-construction-orange hover:text-construction-orange/80 whitespace-nowrap"
+          className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-construction-dark hover:text-construction-orange transition-all whitespace-nowrap"
         >
-          Browse all categories →
+          All Portfolio
+          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </Link>
       </header>
 
@@ -102,10 +108,10 @@ export default function CategoryProductList({ category, onBrandSelectReady, onGr
       />
 
       {/* Results Count */}
-      <div className="flex items-center justify-between text-sm text-gray-600">
+      <div className="flex items-center justify-between text-sm text-construction-gray">
         <span>
-          Showing <strong className="text-gray-900">{filteredProducts.length}</strong> of{" "}
-          <strong className="text-gray-900">{category.products.length}</strong> products
+          Showing <strong className="text-construction-dark">{filteredProducts.length}</strong> of{" "}
+          <strong className="text-construction-dark">{category.products.length}</strong> products
         </span>
         {filteredProducts.length !== category.products.length && (
           <span className="text-construction-orange">
@@ -126,7 +132,7 @@ export default function CategoryProductList({ category, onBrandSelectReady, onGr
             />
           ))
         ) : (
-          <div className="text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">
+          <div className="text-center py-16 bg-slate-100/30 backdrop-blur-md rounded-2xl border-2 border-dashed border-slate-300/50">
             <svg
               className="mx-auto h-12 w-12 text-gray-400"
               fill="none"

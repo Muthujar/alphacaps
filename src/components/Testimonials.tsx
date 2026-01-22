@@ -90,141 +90,133 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="section-container bg-gradient-to-br from-gray-50 via-white to-gray-50" ref={ref}>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12"
-      >
-        <div className="inline-flex items-center justify-center mb-4">
-          <div className="w-16 h-1 bg-construction-orange rounded-full mr-4"></div>
-          <svg 
-            className="w-10 h-10 text-construction-orange" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" 
-            />
-          </svg>
-          <div className="w-16 h-1 bg-construction-orange rounded-full ml-4"></div>
-        </div>
-        <h2 className="section-title">
-          <span className="text-construction-orange">Client Testimonials</span>
-        </h2>
-        <p className="section-subtitle max-w-3xl mx-auto">
-          Hear from our valued clients about their experience working with AlphaCap.
-        </p>
-      </motion.div>
+    <section id="testimonials" className="relative overflow-hidden bg-slate-900 w-full" ref={ref}>
+      {/* Abstract Industrial Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-construction-orange/20 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-construction-accent/20 to-transparent"></div>
+      </div>
 
-      {/* Carousel Container */}
-      <div className="relative">
-        {/* Navigation Buttons */}
-        <button
-          onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl hover:bg-construction-orange hover:text-white transition-all duration-300 border-2 border-gray-200 hover:border-construction-orange group"
-          aria-label="Previous testimonials"
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20 relative z-10"
         >
-          <svg 
-            className="w-6 h-6 text-gray-700 group-hover:text-white transition-colors" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
+          <div className="inline-flex items-center justify-center mb-6">
+            <div className="w-12 h-1 bg-construction-orange rounded-full"></div>
+            <div className="mx-4 text-white font-black uppercase tracking-[0.4em] text-sm">Feedback Loop</div>
+            <div className="w-12 h-1 bg-construction-orange rounded-full"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+            Client <span className="text-construction-orange">Testimonials</span>
+          </h2>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+            Validation from the industry leaders who trust us with their most critical project supplies.
+          </p>
+        </motion.div>
 
-        <button
-          onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl hover:bg-construction-orange hover:text-white transition-all duration-300 border-2 border-gray-200 hover:border-construction-orange group"
-          aria-label="Next testimonials"
-        >
-          <svg 
-            className="w-6 h-6 text-gray-700 group-hover:text-white transition-colors" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        {/* Testimonials Carousel */}
-        <div className="overflow-hidden mx-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 300 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -300 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {getVisibleTestimonials().map((testimonial, index) => (
-                <div
-                  key={`${testimonial.company}-${currentIndex}`}
-                  className="group relative overflow-hidden bg-white rounded-xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:border-construction-orange/50 transition-all duration-300 flex flex-col"
-                >
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-construction-orange/5 via-transparent to-[#1E2761]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Top accent bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-construction-orange via-construction-orange/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Content */}
-                  <div className="relative p-6 flex flex-col flex-grow min-h-[240px]">
-                    {/* Quote icon */}
-                    <div className="mb-4">
-                      <svg 
-                        className="w-10 h-10 text-construction-orange/30" 
-                        fill="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                      </svg>
-                    </div>
-                    
-                    {/* Testimonial quote */}
-                    <p className="text-gray-700 leading-relaxed mb-6 flex-grow italic text-base">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </p>
-                    
-                    {/* Company info */}
-                    <div className="border-t border-gray-200 pt-4 mt-auto">
-                      <h3 className="text-lg font-semibold text-[#1E2761] mb-1">
-                        {testimonial.company}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {testimonial.person}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Dots Indicator */}
-        <div className="flex justify-center items-center gap-2 mt-8">
-          {Array.from({ length: totalSlides }).map((_, index) => (
+        {/* Carousel Container */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Navigation Buttons - Industrial Style */}
+          <div className="hidden lg:block">
             <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentIndex
-                  ? "w-10 h-3 bg-construction-orange"
-                  : "w-3 h-3 bg-gray-300 hover:bg-construction-orange/50"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+              onClick={goToPrevious}
+              className="absolute left-[-4rem] top-1/2 -translate-y-1/2 z-20 w-14 h-14 flex items-center justify-center bg-white/5 border border-white/10 text-white hover:bg-construction-orange hover:border-construction-orange transition-all duration-300 rounded-xl group shadow-2xl backdrop-blur-md"
+              aria-label="Previous testimonials"
+            >
+              <svg className="w-6 h-6 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={goToNext}
+              className="absolute right-[-4rem] top-1/2 -translate-y-1/2 z-20 w-14 h-14 flex items-center justify-center bg-white/5 border border-white/10 text-white hover:bg-construction-orange hover:border-construction-orange transition-all duration-300 rounded-xl group shadow-2xl backdrop-blur-md"
+              aria-label="Next testimonials"
+            >
+              <svg className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Testimonials Carousel */}
+          <div className="overflow-visible py-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+              >
+                {getVisibleTestimonials().map((testimonial, index) => (
+                  <motion.div
+                    key={`${testimonial.company}-${currentIndex}-${index}`}
+                    className="group relative bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col border-l-[10px] border-construction-orange hover:shadow-construction-orange/40 hover:-translate-y-2 transition-all duration-500 min-h-[380px]"
+                  >
+                    {/* Small Elegant Quote Icon - High contrast, non-overlapping header style */}
+                    <div className="mb-6 relative z-10">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-50 text-construction-orange shadow-inner group-hover:bg-construction-orange group-hover:text-white transition-colors duration-500">
+                        <svg className="w-6 h-6 fill-currentColor" viewBox="0 0 24 24">
+                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <p className="text-construction-dark text-xl leading-relaxed mb-10 font-bold italic tracking-tight">
+                          &ldquo;{testimonial.quote}&rdquo;
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-center gap-5 border-t border-slate-100 pt-8 mt-auto">
+                        <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center text-white font-black text-2xl shadow-xl border-2 border-white group-hover:bg-construction-orange transition-colors">
+                          {testimonial.company.charAt(0)}
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-lg font-black text-construction-dark uppercase tracking-tight truncate leading-tight">
+                            {testimonial.company}
+                          </h3>
+                          <p className="text-sm font-black text-construction-orange uppercase tracking-[0.2em] mt-1">
+                            {testimonial.person}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots Indicator - Progress Bar Style */}
+          <div className="flex justify-center items-center gap-3 mt-12">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`group relative h-2 transition-all duration-500 rounded-full overflow-hidden ${
+                  index === currentIndex ? "w-16 bg-white" : "w-4 bg-white/20 hover:bg-white/40"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                {index === currentIndex && (
+                  <motion.div 
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "0%" }}
+                    transition={{ duration: 5, ease: "linear" }}
+                    className="absolute inset-0 bg-construction-orange"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
