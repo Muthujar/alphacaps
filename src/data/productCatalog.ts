@@ -54,6 +54,7 @@ type BaseProductCategory = Omit<ProductCategory, "products"> & {
   products: BaseProduct[];
 };
 
+// When adding a new category here, also add { id, name } to src/data/categoryNav.ts so it appears in the header nav.
 const baseProductCategories: BaseProductCategory[] = [
   {
     id: "bulk-materials",

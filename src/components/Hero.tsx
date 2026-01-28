@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Hero3DVehicle from "./Hero3DVehicle";
-
 
 const heroBackgrounds = [
   {

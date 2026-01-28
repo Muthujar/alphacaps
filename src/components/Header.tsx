@@ -4,8 +4,7 @@ import { useState, useEffect, useLayoutEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { getProductCatalog } from "@/data/productCatalog";
-import Hero3DVehicle from "./Hero3DVehicle";
+import { getCategoryNav } from "@/data/categoryNav";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,8 +14,8 @@ export default function Header() {
   const [currentHash, setCurrentHash] = useState<string>("");
   const pathname = usePathname();
   
-  // Get product categories for dropdown
-  const productCategories = useMemo(() => getProductCatalog(), []);
+  // Slim category list for Products dropdown (avoids pulling in full productCatalog + scrapedProducts)
+  const productCategories = useMemo(() => getCategoryNav(), []);
 
   // Set initial hash synchronously on mount
   useLayoutEffect(() => {
@@ -244,7 +243,7 @@ export default function Header() {
                 >
                   <Link
                     href={item.path}
-                    className={`relative px-5 py-2 text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-1 group/link ${
+                    className={`relative px-5 py-2 text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-1 group/link ${
                       isActive 
                         ? "text-construction-orange" 
                         : "text-construction-dark hover:text-construction-orange"

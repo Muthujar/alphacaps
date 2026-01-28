@@ -125,7 +125,13 @@ export default function InfraConsServices() {
             {/* Service Header with Image */}
             <div className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent z-10"></div>
-              <div className="relative h-48 md:h-56 overflow-hidden">
+              {/* 
+                On mobile, the original fixed height (h-48) wasn't sufficient
+                for longer titles + descriptions, causing text to be clipped
+                inside this overlay. Increase the small-screen height so the
+                text can breathe while keeping a strong visual hero feel.
+              */}
+              <div className="relative h-60 md:h-64 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}

@@ -140,6 +140,5 @@ export default function BusinessVerticalsCards() {
       </motion.div>
     </section>
   );
-  );
 }
 
